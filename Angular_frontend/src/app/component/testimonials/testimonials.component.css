@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
+
+.container1 h3 {
+   
+    width: 698px;
+    height: 102px;
+    font-family: 'Anybody', cursive;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 50px;
+    margin-left: 30px;
+    color: #1E1E1E;
+}
+
+.module-border-wrap {
+    width: 650px;
+    
+    padding: 1rem;
+    display: block;
+   
+    margin: auto;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #D0915D, #73451F);
+    border: 0px solid;
+    border-radius: 20px;
+  }
+  
+  .module1 {
+    background: #FFF9F3;
+    color: #d28a50;
+    font-size: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px solid;
+    border-radius: 20px;
+    
+    
+  }
+  .module1 h3{
+    align-self: flex-end;
+  }
+
+ /* Carousel container */
+ :host ::ng-deep .carousel-indicators button
+ {
+   background-color: #222831 !important;
+   /*more custom style*/
+ }
+ 
+ .carousel-indicators .active {
+   background-color: rgb(15, 14, 14) !important;
+ }
+ :host ::ng-deep .carousel-control-prev-icon{
+  background-image: url('https://apufpel.com.br/assets/img/seta_prim.png');
+ }
+ 
+ :host ::ng-deep .carousel-control-next-icon{
+  background-image: url('https://apufpel.com.br/assets/img/seta_ult.png');
+ }

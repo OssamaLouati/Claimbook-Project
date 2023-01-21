@@ -1,0 +1,18 @@
+<h2 class="titre">
+    What our Clients Say --->
+</h2>
+<ngb-carousel [ngStyle]="{'color': '#D0915D'}">
+    <ng-template  class="container1"  ngbSlide *ngFor="let item of items">
+        <div class="module-border-wrap">
+            <div class="module1">
+                
+                <img [src]="item.image" alt="{{item.name}}">
+                <p>{{item.text}}</p>
+                <h3>{{item.name}}</h3>
+            </div>
+
+        </div>
+       
+    </ng-template>
+    
+</ngb-carousel>

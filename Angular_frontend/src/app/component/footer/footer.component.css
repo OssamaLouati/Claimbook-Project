@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
+
+.parent {
+    display: grid;
+   
+    grid-template-columns: 2fr 2fr 4fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 5px;
+    background: url("../../../assets/images/background1.png") no-repeat;
+    background-position: bottom left;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2;
+        display: flex;
+        flex-direction: column;
+        border-right:3px dotted  #D0915D;
+        align-items: center;
+        padding: 20px;
+
+     }
+    .div3 { 
+        grid-area: 1 / 2 / 2 / 3;
+        display: flex;
+        border-right:3px dotted  #D0915D;
+
+        flex-direction: column;
+    
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+       
+    }
+    .div5 { 
+        grid-area: 1 / 3 / 2 / 4;
+        display: flex;
+        border-right:3px dotted  #D0915D;
+
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        }
+    .div5 input , textarea{
+        border:2px solid #D0915D;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        outline: none;
+        color: #D0915D;
+        padding: 5px;
+        
+    }
+    .div5 input:active ,textarea:active{
+        border:2px solid #774115;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        outline: none;
+        color: #D0915D;
+        padding: 5px;
+        
+    }
+    
+
+    
+    

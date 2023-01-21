@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
+
+.parent {
+    display: grid;
+    margin: 10px;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: 2fr 1fr 0fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 5px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2;
+        display: flex;
+        flex-direction: column;
+        border-right:3px dotted  #D0915D;
+        align-items: center;
+     }
+    .div3 { 
+        grid-area: 1 / 2 / 2 / 3;
+        display: flex;
+        border-right:3px dotted  #D0915D;
+
+        flex-direction: column;
+    
+        align-items: center; }
+    .div5 { 
+        grid-area: 1 / 3 / 2 / 4;
+        display: flex;
+        border-right:3px dotted  #D0915D;
+
+        flex-direction: column;
+    
+        align-items: center; }
+    .div7 { 
+        grid-area: 1 / 4 / 2 / 5;
+        display: flex;
+
+        flex-direction: column;
+    
+        align-items: center;
+     }
+
+    .rectangle{
+    position: relative;
+    width: 110.61px;
+    height: 116.59px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D0915D;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    }
+    fa-icon{
+        
+       
+        color: aliceblue;
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 36px;
+    
+   
+    }

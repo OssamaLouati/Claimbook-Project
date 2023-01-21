@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+
+* {
+   
+    margin: 0;
+    padding: 0;
+   
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fcecdc;
+  }
+ .btn1{
+
+
+padding: 20px;
+
+border: #D0915D;
+background: #D0915D;
+box-shadow: 0px 4px 0px rgba(189, 137, 60, 0.25);
+border-radius: 10px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+color: #FFFFFF;
+cursor: pointer;
+
+}
+.titre {
+width: 698px;
+height: 102px;
+
+font-family: 'Anybody', cursive;
+font-style: normal;
+font-weight: 700;
+font-size: 48px;
+line-height: 50px;
+
+color: #1E1E1E;
+}
+.link {
+  
+
+  font-family: 'Poppins';
+  font-style: normal;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: #A2AAA2;
+      
+  }
+
+  .link:hover{
+  
+
+    font-family: 'Poppins';
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #494e49;
+    margin: 20px;
+    
+        
+    }
