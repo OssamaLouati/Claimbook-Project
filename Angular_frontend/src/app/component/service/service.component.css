@@ -42,8 +42,8 @@
 
     .rectangle{
     position: relative;
-    width: 110.61px;
-    height: 116.59px;
+    width: 100px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
