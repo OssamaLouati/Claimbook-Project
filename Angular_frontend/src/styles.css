@@ -34,13 +34,13 @@ cursor: pointer;
 
 }
 .titre {
-width: 698px;
-height: 102px;
+
 
 font-family: 'Anybody', cursive;
 font-style: normal;
 font-weight: 700;
 font-size: 48px;
+margin: 100px;
 line-height: 50px;
 
 color: #1E1E1E;
@@ -55,7 +55,6 @@ color: #1E1E1E;
   font-size: 24px;
   line-height: 36px;
   color: #A2AAA2;
-      
   }
 
   .link:hover{
