@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('assets/font/Segoe UI.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
 
 * {
    
@@ -10,11 +16,12 @@
   }
   
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Segoe UI';
     margin: 0;
     padding: 0;
     background: #fcecdc;
   }
+
  .btn1{
 
 
@@ -24,7 +31,6 @@ border: #D0915D;
 background: #D0915D;
 box-shadow: 0px 4px 0px rgba(189, 137, 60, 0.25);
 border-radius: 10px;
-font-family: 'Poppins';
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -36,7 +42,6 @@ cursor: pointer;
 .titre {
 
 
-font-family: 'Anybody', cursive;
 font-style: normal;
 font-weight: 700;
 font-size: 48px;
@@ -48,7 +53,6 @@ color: #1E1E1E;
 .link {
   
 
-  font-family: 'Poppins';
   font-style: normal;
   text-decoration: none;
   font-weight: 400;
@@ -60,7 +64,6 @@ color: #1E1E1E;
   .link:hover{
   
 
-    font-family: 'Poppins';
     font-style: normal;
     text-decoration: none;
     font-weight: 400;
