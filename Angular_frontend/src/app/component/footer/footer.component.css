@@ -61,7 +61,12 @@
         padding: 5px;
         
     }
-    
+    img{
+        width: 200px;
+    justify-self: flex-start;
+    margin-right: 500px;
+    margin-bottom: 30px;
+    }
 
     
     

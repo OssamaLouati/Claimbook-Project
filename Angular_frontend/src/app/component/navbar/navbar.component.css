@@ -2,9 +2,17 @@
     display: flex;
     align-items: center;
     justify-items: left;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 30px;
     
     
+    
+}
+img{
+    width: 200px;
+    justify-self: flex-start;
+    margin-right: 500px;
 }
 
 .btn1{

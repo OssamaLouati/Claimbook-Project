@@ -13,11 +13,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './page/home/home.component';
 import { AddClaimComponent } from './page/add-claim/add-claim.component';
-
+import { ClaimListComponent } from './page/claim-list/claim-list.component';
+import { NgbdSortableHeader } from './directive/sortable.directive';
+import {DecimalPipe} from '@angular/common';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
-  
+  { path: 'claims', component: ClaimListComponent },
 ];
 
 @NgModule({
@@ -30,17 +32,20 @@ const routes: Routes = [
     FooterComponent,
     HomeComponent,
     AddClaimComponent,
+    
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     NgImageSliderModule,
     NgbModule,
+    NgbdSortableHeader,
+    ClaimListComponent,
     RouterModule.forRoot(routes)
     
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [DecimalPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

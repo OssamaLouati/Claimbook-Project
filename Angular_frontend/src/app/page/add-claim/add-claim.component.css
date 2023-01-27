@@ -1,7 +1,8 @@
 .container{
-    margin-top: 250px;
     box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.1);
 border-radius: 10px;
+background-color: #fff;
+padding: 20px;
 
 }
 .form-group{
@@ -10,7 +11,6 @@ border-radius: 10px;
 label{
     width: 293.33px;
     height: 51.55px;    
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
