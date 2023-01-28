@@ -24,7 +24,7 @@
         padding-top: 20px;
         justify-content: center;
      }
-     .div1 .title{
+     .div1 .titre{
         display: none;
      }
      .div1 img {
@@ -71,7 +71,7 @@
         .div1 img{
             display: none;
         }
-        .div1 .title{
+        .div1 .titre{
             display: inline;
         }
         .div4{
