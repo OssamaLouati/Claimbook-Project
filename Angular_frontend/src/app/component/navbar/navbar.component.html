@@ -1,8 +1,29 @@
-<div class="nav1">
-    <img src="../../../assets/images/logo.png" alt="fast solve">
-    <a routerLink="/" class="link"  ><fa-icon [icon]="faHome"></fa-icon>Home</a>
-    <a routerLink="/claims" class="link"  ><i class="fa fa-regular fa-book"></i>Categorie</a>
-    <a class="link" href="#" ><fa-icon [icon]="faBullhorn"></fa-icon>Claims</a>
+<div class="nav1 ">
+    <img class="mr-[12px] lg:mr-48"  src="../../../assets/images/logo.png" alt="fast solve">
+    <div class="hidden lg:flex ">
+
+        <a routerLink="/" class="link px-12"  ><fa-icon [icon]="faHome"></fa-icon>Home</a>
+        <a routerLink="/claims" class="link px-12"  ><i class="fa fa-regular fa-book"></i>Categorie</a>
+        <a class="link px-12" href="#" ><fa-icon [icon]="faBullhorn"></fa-icon>Claims</a>
+    </div>
     <button class="btn1">sign in</button>
+    <div class="md:block lg:hidden">
+
+        <button class="navbar-toggler " type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <!-- Step 4: Close the menu when a link is clicked. -->
+                    <a routerLink="/" class="nav-link link" (click)="isMenuCollapsed = true" ><fa-icon [icon]="faHome"></fa-icon>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/claims" class="nav-link link" (click)="isMenuCollapsed = true" ><i class="fa fa-regular fa-book"></i>Categorie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link link" href="#" (click)="isMenuCollapsed = true" ><fa-icon [icon]="faBullhorn"></fa-icon>Claims</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 </div>

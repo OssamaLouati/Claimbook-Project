@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
-
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,5 +11,6 @@ import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent {
   faHome = faHome;
-  faBullhorn=faBullhorn
+  faBullhorn=faBullhorn;
+  isMenuCollapsed = true;
 }

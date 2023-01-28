@@ -61,3 +61,21 @@
     
    
     }
+    @media only screen and (max-width: 600px) {
+        .parent {
+          background-color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .parent > div {
+            border-bottom:3px dotted  #D0915D;
+            border-right:0px dotted  #D0915D;
+            margin-bottom: 40px;
+
+
+        }
+        
+        
+        
+      }

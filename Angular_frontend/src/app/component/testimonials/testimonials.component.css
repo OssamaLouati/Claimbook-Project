@@ -60,3 +60,18 @@
  :host ::ng-deep .carousel-control-next-icon{
   background-image: url('https://apufpel.com.br/assets/img/seta_ult.png');
  }
+ @media only screen and (max-width: 600px) {
+  .module-border-wrap {
+    width: 300px;
+  }
+  .parent > div {
+      border-bottom:3px dotted  #D0915D;
+      border-right:0px dotted  #D0915D;
+      margin-bottom: 40px;
+
+
+  }
+  
+  
+  
+}
