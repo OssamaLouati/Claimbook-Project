@@ -7,3 +7,10 @@
     overflow:hidden;
    
 }
+@media only screen and (max-width: 600px) {
+    .container1{
+        background: url("../assets/images/Rectangle 1.png") no-repeat;
+    background-position: top left ;
+    background-size: 100% ;
+    }
+}

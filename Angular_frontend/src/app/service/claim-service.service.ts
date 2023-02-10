@@ -7,7 +7,7 @@ import { CLAIMS } from '../claims';
 import { DecimalPipe } from '@angular/common';
 import { debounceTime, delay, switchMap, tap } from 'rxjs/operators';
 import { SortColumn, SortDirection } from '../directive/sortable.directive';
-
+import {HttpClient , HttpHeaders } from '@angular/common/http'
 interface SearchResult {
 	countries: Claim[];
 	total: number;
@@ -37,8 +37,8 @@ function sort(countries: Claim[], column: SortColumn, direction: string): Claim[
 function matches(country: Claim, term: string, pipe: PipeTransform) {
 	return (
 		country.name.toLowerCase().includes(term.toLowerCase()) ||
-		pipe.transform(country.area).includes(term) ||
-		pipe.transform(country.population).includes(term)
+		country.area.toLocaleLowerCase().includes(term.toLocaleLowerCase()) || 
+		country.population.toString().toLowerCase().includes(term.toLowerCase())
 	);
 }
 
@@ -56,8 +56,8 @@ export class ClaimService {
 		sortColumn: '',
 		sortDirection: '',
 	};
-
-	constructor(private pipe: DecimalPipe) {
+    private apiUrl ='http://localhost:5000/claims';
+	constructor(private pipe: DecimalPipe , private http:HttpClient) {
 		this._search$
 			.pipe(
 				tap(() => this._loading$.next(true)),
@@ -72,6 +72,10 @@ export class ClaimService {
 			});
 
 		this._search$.next();
+	}
+
+	getClaims() : Observable<Claim[]>{
+		return this.http.get<Claim[]>(this.apiUrl)
 	}
 
 	get countries$() {

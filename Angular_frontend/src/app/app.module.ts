@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgImageSliderModule } from 'ng-image-slider';
 import {Routes, RouterModule} from '@angular/router'
-
+import { HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -40,6 +40,7 @@ const routes: Routes = [
     NgImageSliderModule,
     NgbModule,
     NgbdSortableHeader,
+    HttpClientModule,
     ClaimListComponent,
     RouterModule.forRoot(routes)
     
