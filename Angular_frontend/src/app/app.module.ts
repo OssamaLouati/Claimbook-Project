@@ -16,10 +16,16 @@ import { AddClaimComponent } from './page/add-claim/add-claim.component';
 import { ClaimListComponent } from './page/claim-list/claim-list.component';
 import { NgbdSortableHeader } from './directive/sortable.directive';
 import {DecimalPipe} from '@angular/common';
+import { ProfileComponent } from './page/profile/profile.component';
+import { SigninComponent } from './component/signin/signin.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
   { path: 'claims', component: ClaimListComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'login', component: SigninComponent },
+
+
 ];
 
 @NgModule({
@@ -32,6 +38,8 @@ const routes: Routes = [
     FooterComponent,
     HomeComponent,
     AddClaimComponent,
+    ProfileComponent,
+    SigninComponent,
     
   ],
   imports: [
