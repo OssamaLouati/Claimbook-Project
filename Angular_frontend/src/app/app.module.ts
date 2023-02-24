@@ -18,14 +18,18 @@ import { NgbdSortableHeader } from './directive/sortable.directive';
 import {DecimalPipe} from '@angular/common';
 import { ProfileComponent } from './page/profile/profile.component';
 import { SigninComponent } from './component/signin/signin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClaimComponent } from './page/claim/claim.component';
+import {MatIconModule} from '@angular/material/icon';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
   { path: 'claims', component: ClaimListComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: SigninComponent },
-
-
+  { path: 'claim', component: ClaimComponent },
+  
 ];
 
 @NgModule({
@@ -40,6 +44,7 @@ const routes: Routes = [
     AddClaimComponent,
     ProfileComponent,
     SigninComponent,
+    ClaimComponent,
     
   ],
   imports: [
@@ -50,7 +55,9 @@ const routes: Routes = [
     NgbdSortableHeader,
     HttpClientModule,
     ClaimListComponent,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatIconModule
     
   ],
   exports: [RouterModule],

@@ -8,7 +8,7 @@ import { ClaimService } from '../../service/claim-service.service';
 import { NgbdSortableHeader, SortEvent } from '../../directive/sortable.directive';
 import { FormsModule } from '@angular/forms';
 import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-table',
@@ -23,6 +23,8 @@ import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootst
 		NgbPaginationModule,
 		NgIf,
 		NgClass,
+		MatIconModule,
+		
 	],
   templateUrl: './claim-list.component.html',
   styleUrls: ['./claim-list.component.css']

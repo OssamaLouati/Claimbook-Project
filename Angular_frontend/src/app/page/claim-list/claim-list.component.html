@@ -24,6 +24,8 @@
                     <th scope="col" sortable="name" (sort)="onSort($event)">problem name</th>
                     <th scope="col" sortable="area" (sort)="onSort($event)">Status</th>
                     <th scope="col" sortable="population" (sort)="onSort($event)">Date</th>
+                    <th scope="col"></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +37,8 @@
                     </td>
                     <td ><ngb-highlight [result]="country.area.toString()" [term]="service.searchTerm" [ngClass]="{'Done':country.area=='Done', 'Cancelled':country.area=='Cancelled'}" class="status" ></ngb-highlight></td>
                     <td><ngb-highlight [result]="country.population.toString() " [term]="service.searchTerm"></ngb-highlight></td>
+                    <td><mat-icon>delete_forever</mat-icon></td>
+                    <td><mat-icon>edit</mat-icon></td>
                 </tr>
             </tbody>
         </table>

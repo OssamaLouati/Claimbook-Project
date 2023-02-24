@@ -15,7 +15,6 @@
     .div1 { grid-area: 1 / 1 / 2 / 2;
         display: flex;
         flex-direction: column;
-        border-right:3px dotted  #D0915D;
         align-items: center;
         padding: 20px;
 
@@ -35,7 +34,6 @@
     .div5 { 
         grid-area: 1 / 3 / 2 / 4;
         display: flex;
-        border-right:3px dotted  #D0915D;
 
         flex-direction: column;
         gap: 20px;
