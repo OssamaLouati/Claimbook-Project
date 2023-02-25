@@ -6,6 +6,10 @@ background-color: #fff;
 padding: 20px;
 
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+}
 label{
     font-style: normal;
     font-weight: 400;

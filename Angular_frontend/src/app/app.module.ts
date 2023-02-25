@@ -21,6 +21,7 @@ import { SigninComponent } from './component/signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClaimComponent } from './page/claim/claim.component';
 import {MatIconModule} from '@angular/material/icon';
+import { EditprofileComponent } from './page/editprofile/editprofile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,9 +43,10 @@ const routes: Routes = [
     FooterComponent,
     HomeComponent,
     AddClaimComponent,
-    ProfileComponent,
+    
     SigninComponent,
     ClaimComponent,
+    EditprofileComponent,
     
   ],
   imports: [
@@ -57,7 +59,8 @@ const routes: Routes = [
     ClaimListComponent,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    ProfileComponent
     
   ],
   exports: [RouterModule],
