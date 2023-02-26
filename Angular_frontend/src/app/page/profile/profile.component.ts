@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDialog} from '@angular/material/dialog';
 import { EditprofileComponent } from '../editprofile/editprofile.component';
@@ -9,20 +9,26 @@ import { EditprofileComponent } from '../editprofile/editprofile.component';
   imports: [
     MatDialogModule
   ],
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class ProfileComponent {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog , private cdr: ChangeDetectorRef) {}
 
-  openDialog() {
-    this.dialog.open(EditprofileComponent, {
-      width: '30%'
+  openDialog(): void {
+    const dialogRef = this.dialog.open(EditprofileComponent, {
+    });
+    this.cdr.detectChanges();
 
-    })
-
-    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
+
+
+
 
 
 
