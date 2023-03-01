@@ -21,19 +21,7 @@ label{
     
     color: #73451F; 
 }
-input[type='text'] , textarea{
-    box-sizing: border-box;
-    padding: 20px;
 
-
-
-
-background: #FFFFFF;
-/* Drop-shadow */
-
-box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.1);
-border-radius: 10px;
-}
 .input-group-text{
     height: 100px;
     background-color: #f0b686;

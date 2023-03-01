@@ -1,26 +1,24 @@
 <div class="container">
     <h2 class="titre">
-        Claim a problem  --->
+        Login --->
     </h2>
-    <form>
+    <form (ngSubmit)="userLogin()">
         <div class="form-group">
-            <label for="email"> Your email</label>
+            <label for="email"> Your ine-mail</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2">@inemail.ine.inpt.ma</span>
-                </div>
+                <input type="text" class="form-control" placeholder="ine mail" id="email" name="email" [(ngModel)]="user.email">
+                
               </div>
               <label for="password"> Your password</label>
               <div class="input-group mb-3">
-                  <input type="password" class="form-control" placeholder="password"  >
+                  <input id="password" name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="password"  >
                   
                 </div>
         </div>
       
        
      
-        <button type="submit" class="btn1">login</button>
+        <button type="submit"   class="btn1">login</button>
       </form>
       
 </div>

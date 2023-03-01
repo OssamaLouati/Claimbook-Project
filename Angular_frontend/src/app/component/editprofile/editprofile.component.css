@@ -1,0 +1,23 @@
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 20px;
+  }
+.skills{
+    flex: 0 0 100%;
+    max-width: 100%;
+    
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+ .skills .skill{
+    border: 2px solid #73451F;
+    flex: 0 0 20%;
+    padding: 10px;
+
+}
