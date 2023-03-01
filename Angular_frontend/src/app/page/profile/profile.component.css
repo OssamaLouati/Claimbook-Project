@@ -1,0 +1,129 @@
+.about{
+    box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+    
+}
+.about .about-content{
+    flex: 0 0 100%;
+    max-width: 100%;
+    
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+.section-image{
+    width: 300px;
+    border: 1px solid #73451F;
+    border-radius: 20px;
+    
+}
+.about .about-content .about-text{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.about .about-content .about-text h3{
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #73451F;
+}
+.about .about-content .about-text h3 span{
+    color: #000;
+}
+.about .about-content .about-text p{
+    font-size: 16px;
+    line-height: 25px;
+    color: #000;
+}
+.about .about-content .personal-info{
+    flex: 0 0 80%;
+    max-width: 80%;
+   
+    margin-top: 40px;
+}
+.about .about-content .personal-info .info-item{
+    flex: 0 0 80%;
+    max-width: 80%;
+}
+.about .about-content .personal-info .info-item p{
+    font-weight: 600;
+    padding:10px 0 ;
+    font-size: 16px;
+    color: #000;
+    border-bottom: 1px solid #73451F;
+}
+.about .about-content .personal-info .info-item p span{
+    font-weight: 400;
+    color:#73451F;
+    margin-left: 4px;
+    display: inline-block;
+}
+.about .about-content .personal-info .buttons{
+    margin-top: 30px;
+}
+.about .about-content .personal-info .buttons .btn{
+    margin-right: 15px;
+    margin-top: 10px;
+}
+.about .about-content .skills{
+    flex: 0 0 40%;
+    max-width: 40%;
+    
+    margin-top: 40px;
+}
+.about .about-content .skills .skill-item{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.about .about-content .skills .skill-item h5{
+    line-height: 40px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000;
+    text-transform: capitalize;
+}
+.about .about-content .skills .skill-item .progress{
+    background-color: #73451F;
+    height: 7px;
+    border-radius: 30px;
+    width: 100%;
+    position: relative;
+    
+}
+.about .about-content .skills .skill-item{
+    margin-bottom: 25px;
+}
+.about .about-content .skills .skill-item .progress .progress-in{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 30px;
+    background-color: #b49b87;
+}
+.about .about-content .skills .skill-item .skill-percent{
+    position: absolute;
+    right: 0;
+    color: #73451F;
+    top: -40px;
+    font-weight: 400;
+    line-height: 40px;
+}
+@media (max-width:767px){
+    .about .about-content .experience,
+    .about .about-content .education,
+    .about .about-content .skills,
+    .about .about-content .personal-info{
+        flex: 0 0 100%;
+        max-width: 100%;
+        font-size: 14px;
+
+    }
+}

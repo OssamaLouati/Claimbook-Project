@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="header">
+
+        <h2 class="titre">My claims ---></h2>
+        <a href="/addclaim"><button type="submit"  class="btn1">Add Claim</button></a>
+        
+    </div>
+
+    
+    <form>
+        <div class="mb-3 row">
+            <label for="table-complete-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
+            <div class="col-xs-3 col-sm-auto">
+                <input
+                    id="table-complete-search"
+                    type="text"
+                    class="form-control"
+                    name="searchTerm"
+                    [(ngModel)]="service.searchTerm"
+                />
+            </div>
+            <span class="col col-form-label" *ngIf="service.loading$ | async">Loading...</span>
+        </div>
+    
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" sortable="name" (sort)="onSort($event)">problem name</th>
+                    <th scope="col" sortable="area" (sort)="onSort($event)">Status</th>
+                    <th scope="col" sortable="population" (sort)="onSort($event)">Date</th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let country of countries$ | async">
+                    <th scope="row">{{ country.id }}</th>
+                    <td>
+                        
+                        <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+                    </td>
+                    <td ><ngb-highlight [result]="country.area.toString()" [term]="service.searchTerm" [ngClass]="{'Done':country.area=='Done', 'Cancelled':country.area=='Cancelled'}" class="status" ></ngb-highlight></td>
+                    <td><ngb-highlight [result]="country.population.toString() " [term]="service.searchTerm"></ngb-highlight></td>
+                    <td><mat-icon class="text-orange-700">delete_forever</mat-icon></td>
+                    <td ><a href="/addclaim"> <mat-icon>edit</mat-icon> </a> </td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div class="d-flex justify-content-between p-2">
+            <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+            </ngb-pagination>
+    
+            <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+            </select>
+        </div>
+    </form>
+</div>

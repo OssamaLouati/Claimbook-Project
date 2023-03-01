@@ -1,9 +1,117 @@
 .container1{
     display: flex;
     flex-direction: column;
-    background-color: #FFF9F3 ;
     background: url("../assets/images/Rectangle 1.png") no-repeat;
     background-position: top left ;
-    background-size: 100%;
+    background-size: 100% 30%;
+    overflow:hidden;
    
 }
+@media only screen and (max-width: 600px) {
+    .container1{
+        background: url("../assets/images/Rectangle 1.png") no-repeat;
+    background-position: top left ;
+    background-size: 100% ;
+    }
+}
+.blur {
+    filter: blur(5px);
+  }
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+/* @font-face {
+  font-family: 'Segoe UI';
+  src: url('assets/font/Segoe UI.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+} */
+:root{
+  --bg-black-900:#f2f2fc;
+  --bg-black-100:#fdf9ff;
+  --bg-black-50:#e8dfec;
+  --text-black-900:#302e4d;
+  --text--black-700:#504e70;
+
+
+
+}
+* {
+   
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI';
+    
+    
+
+  
+   
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #fcecdc;
+    color: #4D5573;
+
+  }
+  
+
+ .btn1{
+
+
+padding: 20px;
+
+border: #C7756F;
+background: #C7756F;
+box-shadow: 0px 4px 0px rgba(189, 137, 60, 0.25);
+border-radius: 10px;
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+color: #FFFFFF;
+cursor: pointer;
+
+}
+.titre {
+
+
+font-style:normal;
+font-weight:700;
+font-size: 48px;
+margin-bottom: 70px;
+margin-top: 70px;
+margin-left: 30px;
+
+line-height: 50px;
+
+color: #A7667F;
+}
+.link {
+  
+
+  font-style: normal;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: #C7756F;
+  }
+
+  .link:hover{
+  
+
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #A7667F;
+    
+        
+    }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
