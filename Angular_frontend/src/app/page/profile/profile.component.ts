@@ -1,28 +1,27 @@
-import { Component } from '@angular/core';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatDialog} from '@angular/material/dialog';
-import { EditprofileComponent } from '../editprofile/editprofile.component';
+import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
+
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { EditprofileComponent } from '../../component/editprofile/editprofile.component';
+
 @Component({
   selector: 'app-profile',
-  standalone: true,
   templateUrl: './profile.component.html',
-  imports: [
-    MatDialogModule
-  ],
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+
 })
 export class ProfileComponent {
-  constructor(public dialog: MatDialog) {}
+  modalRef: MdbModalRef<EditprofileComponent> | null = null;
 
-  openDialog() {
-    this.dialog.open(EditprofileComponent, {
-      width: '30%'
+  constructor(private modalService: MdbModalService) {}
 
-    })
-
-    
+  openModal() {
+    this.modalRef = this.modalService.open(EditprofileComponent)
   }
+ 
 }
+
+
+
 
 
 

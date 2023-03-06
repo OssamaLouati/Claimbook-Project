@@ -22,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClaimComponent } from './page/claim/claim.component';
 import {MatIconModule} from '@angular/material/icon';
 import { EditprofileComponent } from './page/editprofile/editprofile.component';
-
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
@@ -47,6 +48,8 @@ const routes: Routes = [
     SigninComponent,
     ClaimComponent,
     EditprofileComponent,
+    ProfileComponent
+
     
   ],
   imports: [
@@ -60,7 +63,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatIconModule,
-    ProfileComponent
+    MdbModalModule,
+    FormsModule,
     
   ],
   exports: [RouterModule],

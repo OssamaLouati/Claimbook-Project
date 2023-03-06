@@ -1,1 +1,44 @@
-<h1 mat-dialog-title>Edit profile</h1>
+<div class="modal-header p-6">
+    <h5 class="modal-title" id="exampleModalLabel">edit Profile</h5>
+    <div class="form-group p-6">
+          <label for="exampleFormControlTextarea1"> update your bioghraphie</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="describe yourself here !!"></textarea>
+    </div>
+    <div class="form-group p-6 ">
+      <label for="exampleFormControlTextarea1"> add new skill</label>
+      <input type="text" class="form-control" placeholder="add skill" >
+
+      
+</div>
+<div class="skills p-6">
+
+  <div class="skill">
+      <h5 class="title">HTML</h5>
+  </div>
+  <div class="skill">
+      <h5 class="title">javascript </h5>
+  </div>
+  <div class="skill">
+      <h5 class="title">Css </h5>
+  </div>
+  <div class="skill">
+      <h5 class="title">javascript </h5>
+  </div>
+  <div class="skill">
+      <h5 class="title">javascript </h5>
+  </div>
+  <div class="skill">
+      <h5 class="title">javascript </h5>
+  </div>
+  <div class="skill">
+      <h5 class="title">javascript </h5>
+  </div>
+</div>
+   <div class="flex p-6 ">
+
+     <button type="button" class="btn btn-secondary mr-6" (click)="modalRef.close()">
+       Close
+     </button>
+     <button type="button" class="btn btn-primary">Save changes</button>
+   </div>
+  </div>
