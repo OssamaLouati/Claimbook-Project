@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginuserService } from 'src/app/service/loginuser.service';
 import { User } from 'src/app/user';
 @Component({
@@ -9,17 +10,25 @@ import { User } from 'src/app/user';
 export class SigninComponent implements OnInit {
   user:User = new User();
   
-  constructor(private loginuserservice: LoginuserService){
+  
+  constructor(private loginuserservice: LoginuserService, private router: Router){
+    
 
   }
   ngOnInit(): void {
       
   }
   userLogin(){
-    console.log(this.user);
-    this.loginuserservice.loginUser(this.user).subscribe(data =>{
-      alert('Login success !!')
-    }, error=>alert("Incorrect email and password"))
+
+    this.loginuserservice.loginUser(this.user.email,this.user.password).subscribe((res)=>{
+     if(res==1){
+      alert("valid email/password")
+      this.router.navigate(["/profile"]);
+     }
+     else{
+      alert("invalid email/password");
+     }
+    })
   }
   
 

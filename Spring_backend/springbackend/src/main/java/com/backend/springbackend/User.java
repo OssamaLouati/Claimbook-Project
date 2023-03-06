@@ -1,4 +1,4 @@
-package com.backend.springbackend.model;
+package com.backend.springbackend;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,14 +10,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name="loginUser")
+
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
 public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer id;
 	private String email;
 	private String password;
@@ -28,7 +26,6 @@ public class User {
 	private String skills;
 	private int room;
 	private int pavillon;
-	@Column(columnDefinition = "BOOLEAN")
 	private boolean roommate;
 
 }
