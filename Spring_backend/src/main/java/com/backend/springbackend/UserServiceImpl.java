@@ -40,6 +40,43 @@ public class UserServiceImpl implements UserService {
 		}
 		return flag;
 	}
+	@Override
+	public User finduser(String email, String password) throws SQLException {
+		
+			PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE email ='"+email+"' AND password ='"+password+"'");
+			ResultSet re =statement.executeQuery();
+			
+			
+			if (re.next()) {
+			    long id = re.getLong("id");
+			    String username = re.getString("name");
+			    String userEmail = re.getString("email");
+			    String userPassword = re.getString("password");
+			    String userBio = re.getString("bio");
+			    String userSkills = re.getString("skills");
+			    long room = re.getLong("room");
+			    long pav = re.getLong("pavillon");
+			 
+			    String userniveau = re.getString("niveau");
+				 
+			    String userfiliere = re.getString("filiere");
+			    Boolean roommate = re.getBoolean("roommate");
+			    
+			    // extract other user properties as needed
+			    
+
+			    User user = new User((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate);
+			    // set other user properties as needed
+
+			    return user;
+			} else {
+			    return null;
+			}
+	}
+	
+	
+	
+	
 	
 
 }

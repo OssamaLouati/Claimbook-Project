@@ -1,4 +1,4 @@
-<div class="about section m-6  " id="about">
+<div class="about section m-6  " id="about" *ngIf="(user$ | async) as user">
     <div class="row">
         <div class="section-title padd-15">
             <h2 class="titre">My Profile</h2>  
@@ -7,8 +7,8 @@
     <div class="container m-8">
         <div class="row">
             <div class="about-text padd-15">
-                <h3>I'm Khouloud Taouchikht <span>Software engineering student</span></h3>
-                <p>I’m a designer by day, coder by night. Show me the code that you write. 🖥🎨</p>
+                <h3>I'm {{user.name}} <span>Software engineering student</span></h3>
+                <p>{{user.bio}}</p>
                 
                 <button class="btn1 mb-6" (click)="openModal()">Edit Profile</button>
     </div>
@@ -29,23 +29,23 @@
                               <div class="row">
                                 <div class="info-item padd-15">
                                     <p>
-                                        niveau: <span>ine2</span>
+                                        niveau: <span>{{user.niveau}}</span>
                                     </p>
                                 </div>
                                 <div class="info-item padd-15">
                                     <p>
-                                        filiere: <span>aseds</span>
+                                        filiere: <span>{{user.filiere}}</span>
                                     </p>
                                 </div>
                                
                                 <div class="info-item padd-15">
                                     <p>
-                                        room: <span>301</span>
+                                        room: <span>{{user.room}}</span>
                                     </p>
                                 </div>
                                 <div class="info-item padd-15">
                                     <p>
-                                        pavillion: <span>3</span>
+                                        pavillion: <span>{{user.pavillon}}</span>
                                     </p>
                                 </div>
                                

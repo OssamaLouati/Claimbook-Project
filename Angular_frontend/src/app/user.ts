@@ -6,9 +6,9 @@ export class User {
 	 name!: string;
 	 bio!: string;
 	 niveau!: string;
+	 pavillon!: number;
 	 filiere!: string;
 	 skills!: string;
 	 room!: number;
-	 pavillon!: number;
 	 roommate!: boolean; 
 }
