@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 			    String userBio = re.getString("bio");
 			    String userSkills = re.getString("skills");
 			    long room = re.getLong("room");
-			    long pav = re.getLong("pavilliom");
+			    long pav = re.getLong("pavillon");
 			 
 			    String userniveau = re.getString("niveau");
 				 

@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
        this.user.name=res.name;
        this.user.niveau=res.niveau;
        this.user.pavillon=res.pavillon;
-       console.log(res.pavilliom)
+       console.log(res.pavillon)
        this.user.room=res.room;
        this.user.roommate=res.roommate;
        this.user.skills=res.skills;
