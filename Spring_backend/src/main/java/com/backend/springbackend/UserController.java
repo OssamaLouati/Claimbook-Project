@@ -2,6 +2,8 @@ package com.backend.springbackend;
 
 
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class UserController {
@@ -22,13 +27,36 @@ public class UserController {
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping("/user/{email}/{password}")
-	public ResponseEntity<Integer> UserLogin(@PathVariable("email") String email1 , @PathVariable("password") String password1) {
+	public ResponseEntity<User> UserLogin(@PathVariable("email") String email1 , @PathVariable("password") String password1, HttpServletRequest request) {
 		int flag = userservice.loginValidation(email1, password1);
 		Integer result = flag;
-		
-		return ResponseEntity.ok(result);
+		User user= null;
+		 if (result==1) {
+		      HttpSession session = request.getSession(true);
+		      session.setAttribute("email", email1);
+		      try {
+			     user = userservice.finduser(email1, password1);
+				System.out.println(user);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		      return ResponseEntity.ok(user);
+		    } else {
+		      return ResponseEntity.badRequest().build();
+		    }
+				
 		
 	}
+	@CrossOrigin(origins = "*")
+	 @PostMapping("user/logout")
+	  public ResponseEntity<?> logout(HttpServletRequest request) {
+	    HttpSession session = request.getSession(false);
+	    if (session != null) {
+	      session.invalidate();
+	    }
+	    return ResponseEntity.ok().build();
+	  }
 	
 
 }

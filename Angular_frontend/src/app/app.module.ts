@@ -24,6 +24,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { EditprofileComponent } from './page/editprofile/editprofile.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { FormsModule } from '@angular/forms';
+import { MDBBootstrapModule } from 'ng-uikit-pro-standard';
+import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
+import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { LogoutComponent } from './component/logout/logout.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
@@ -37,18 +41,18 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HeaderComponent,
     ServiceComponent,
     TestimonialsComponent,
     FooterComponent,
     HomeComponent,
     AddClaimComponent,
-    
+    NavbarComponent,
     SigninComponent,
     ClaimComponent,
     EditprofileComponent,
-    ProfileComponent
+    ProfileComponent,
+    LogoutComponent,
 
     
   ],
@@ -65,6 +69,10 @@ const routes: Routes = [
     MatIconModule,
     MdbModalModule,
     FormsModule,
+    MDBBootstrapModule,
+    MDBBootstrapModulesPro.forRoot(),
+    MdbCollapseModule
+    
     
   ],
   exports: [RouterModule],
