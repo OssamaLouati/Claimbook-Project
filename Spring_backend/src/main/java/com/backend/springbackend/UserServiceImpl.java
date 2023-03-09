@@ -61,11 +61,13 @@ public class UserServiceImpl implements UserService {
 				 
 			    String userfiliere = re.getString("filiere");
 			    Boolean roommate = re.getBoolean("roommate");
+			    String gender = re.getString("gender");
+			    String avatar = re.getString("avatar");
 			    
 			    // extract other user properties as needed
 			    
 
-			    User user = new User((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate);
+			    User user = new User((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate,gender,avatar);
 			    // set other user properties as needed
 
 			    return user;

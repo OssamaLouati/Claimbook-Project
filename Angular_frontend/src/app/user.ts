@@ -8,5 +8,7 @@ export class User {
 	 filiere!: string;
 	 skills!: string;
 	 room!: number;
-	 roommate!: boolean; 
+	 roommate!: boolean;
+	 gender!: string;
+	 avatar!: string; 
 }

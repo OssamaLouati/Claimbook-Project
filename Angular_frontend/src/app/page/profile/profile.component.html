@@ -15,7 +15,7 @@
         </div>
          <div class="row">
             <div class="section-image padd-15">
-                <img src="../../../assets/images/me.jpg" alt="">  
+                <img [src]="imageUrl" type="image">
             </div>
          </div>
     </div>
@@ -51,34 +51,17 @@
                                
                                 <div class="info-item padd-15">
                                     <p>
-                                        Roommate: <span>Available</span>
+                                        Roommate: <span>{{user.roommate}}</span>
                                     </p>
                                 </div>
                               </div>
                               <h3 class="mt-6">My skills</h3>
-                            <div class="skills padd-15">
+                            <div class="skills padd-15" *ngFor="let skill of skills">
 
                                 <div class="skill">
-                                    <h2 class="title">HTML</h2>
+                                    <h2 class="title">{{skill}}</h2>
                                 </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">Css </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
+                               
                             </div>
                         </div>
                 </div>

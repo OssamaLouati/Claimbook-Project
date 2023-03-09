@@ -15,6 +15,9 @@ export class ProfileComponent {
   
   public user$: any = {};
 
+  skills: string[] = [];
+  roommate = false;
+  imageUrl='assets/images/photo.webp';
   constructor(private modalService: MdbModalService, private loginuserservice: LoginuserService, private cdr: ChangeDetectorRef) {}
 
   openModal() {
@@ -26,6 +29,12 @@ export class ProfileComponent {
     if (user) {
       this.user$ = JSON.parse(user);
       this.cdr.detectChanges(); // force change detection to update the view
+      this.skills = this.user$.skills.replace(/\s+/g, " ").split(" ");
+      let index = this.skills.indexOf("");
+      
+      if(this.user$.avatar!=null){
+        this.imageUrl=this.user$.avatar;
+      }
     }
   }
  

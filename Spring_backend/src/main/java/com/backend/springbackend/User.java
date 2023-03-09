@@ -28,10 +28,10 @@ public class User {
 	private int room;
 	private int pavillon;
 	private boolean roommate;
+	private String gender;
+	private String avatar;
 	
 	
-	public String getName(){
-		return this.name;
-	};
+	
 
 }

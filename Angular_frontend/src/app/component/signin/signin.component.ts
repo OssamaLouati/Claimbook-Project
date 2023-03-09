@@ -32,6 +32,8 @@ export class SigninComponent implements OnInit {
         this.user.room=res.room;
         this.user.roommate=res.roommate;
         this.user.skills=res.skills;
+        this.user.gender=res.gender;
+        this.user.avatar=res.avatar;
 
         console.log(this.user);
 
