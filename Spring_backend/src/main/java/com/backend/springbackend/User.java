@@ -16,10 +16,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
 	
+	
 	private Integer id;
 	private String email;
 	private String password;
-	private String name;
+	public String name;
 	private String bio;
 	private String niveau;
 	private String filiere;
@@ -27,5 +28,10 @@ public class User {
 	private int room;
 	private int pavillon;
 	private boolean roommate;
+	
+	
+	public String getName(){
+		return this.name;
+	};
 
 }

@@ -36,7 +36,7 @@ public class UserController {
 		      session.setAttribute("email", email1);
 		      try {
 			     user = userservice.finduser(email1, password1);
-				System.out.println(user);
+				System.out.println(user.getName());
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -49,14 +49,14 @@ public class UserController {
 		
 	}
 	@CrossOrigin(origins = "*")
-	 @PostMapping("user/logout")
-	  public ResponseEntity<?> logout(HttpServletRequest request) {
+	@PostMapping("user/logout")
+	public ResponseEntity<?> logout(HttpServletRequest request) {
 	    HttpSession session = request.getSession(false);
 	    if (session != null) {
 	      session.invalidate();
 	    }
 	    return ResponseEntity.ok().build();
-	  }
+	 }
 	
 
 }

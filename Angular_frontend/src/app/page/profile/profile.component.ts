@@ -12,12 +12,21 @@ import { EditprofileComponent } from '../../component/editprofile/editprofile.co
 })
 export class ProfileComponent {
   modalRef: MdbModalRef<EditprofileComponent> | null = null;
-  public user$ = this.loginuserservice.user$;
+  
+  public user$: any = {};
 
-  constructor(private modalService: MdbModalService, private loginuserservice: LoginuserService) {}
+  constructor(private modalService: MdbModalService, private loginuserservice: LoginuserService, private cdr: ChangeDetectorRef) {}
 
   openModal() {
     this.modalRef = this.modalService.open(EditprofileComponent)
+  }
+
+  ngOnInit(): void {
+    const user = localStorage.getItem("currentUser")
+    if (user) {
+      this.user$ = JSON.parse(user);
+      this.cdr.detectChanges(); // force change detection to update the view
+    }
   }
  
 }

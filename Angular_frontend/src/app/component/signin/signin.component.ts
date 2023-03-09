@@ -8,45 +8,49 @@ import { User } from 'src/app/user';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  
   user:User = new User();
-  
-  
   constructor(private loginuserservice: LoginuserService, private router: Router){
-    
+  
+  }
 
+  ngOnInit(): void {    
   }
-  ngOnInit(): void {
-      
-  }
+
   userLogin(){
 
     this.loginuserservice.loginUser(this.user.email,this.user.password).subscribe((res)=>{
       if(res!=null){
        
-       this.user.bio=res.bio;
-       this.user.email=res.email;
-       this.user.filiere=res.filiere;
-       this.user.name=res.name;
-       this.user.niveau=res.niveau;
-       this.user.pavillon=res.pavillon;
-       console.log(res.pavillon)
-       this.user.room=res.room;
-       this.user.roommate=res.roommate;
-       this.user.skills=res.skills;
-       console.log(this.user);
-       this.loginuserservice.setUser(this.user);
-      alert("valid email/password")
-      this.router.navigate(["/profile"]);
-     }
-     else{
-      alert("invalid email/password");
-     }
+        this.user.bio=res.bio;
+        this.user.email=res.email;
+        this.user.filiere=res.filiere;
+        this.user.name=res.name;
+        this.user.niveau=res.niveau;
+        this.user.pavillon=res.pavillon;
+        console.log(res.pavillon)
+        this.user.room=res.room;
+        this.user.roommate=res.roommate;
+        this.user.skills=res.skills;
+
+        console.log(this.user);
+
+        // this.loginuserservice.setUser(this.user);
+        alert("valid email/password")
+      
+        
+        const userJson = JSON.stringify(this.user);
+        localStorage.setItem('currentUser', userJson);
+
+        const userr = localStorage.getItem("currentUser"); // retrieve JSON string from localStorage
+        const user = userr ? JSON.parse(userr) : {}
+        this.loginuserservice.setUser(user);
+        console.log(user);
+        this.router.navigate(["/profile"]);
+      
+      }else{
+        alert("invalid email/password");
+      }
     })
   }
-  
-
-
-
-
-
 }
