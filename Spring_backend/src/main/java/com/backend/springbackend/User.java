@@ -32,6 +32,172 @@ public class User {
 	
 	
 	
+	public Integer getId() {
+		return id;
+	}
+
+
+
+
+	public User(Integer id, String email, String password, String name, String bio, String niveau, String filiere,
+			String skills, int room, int pavillon, boolean roommate) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.bio = bio;
+		this.niveau = niveau;
+		this.filiere = filiere;
+		this.skills = skills;
+		this.room = room;
+		this.pavillon = pavillon;
+		this.roommate = roommate;
+	}
+
+
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+
+	public String getBio() {
+		return bio;
+	}
+
+
+
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+
+
+
+	public String getNiveau() {
+		return niveau;
+	}
+
+
+
+
+	public void setNiveau(String niveau) {
+		this.niveau = niveau;
+	}
+
+
+
+
+	public String getFiliere() {
+		return filiere;
+	}
+
+
+
+
+	public void setFiliere(String filiere) {
+		this.filiere = filiere;
+	}
+
+
+
+
+	public String getSkills() {
+		return skills;
+	}
+
+
+
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+
+
+
+	public int getRoom() {
+		return room;
+	}
+
+
+
+
+	public void setRoom(int room) {
+		this.room = room;
+	}
+
+
+
+
+	public int getPavillon() {
+		return pavillon;
+	}
+
+
+
+
+	public void setPavillon(int pavillon) {
+		this.pavillon = pavillon;
+	}
+
+
+
+
+	public boolean isRoommate() {
+		return roommate;
+	}
+
+
+
+
+	public void setRoommate(boolean roommate) {
+		this.roommate = roommate;
+	}
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+
 	public String getName(){
 		return this.name;
 	};

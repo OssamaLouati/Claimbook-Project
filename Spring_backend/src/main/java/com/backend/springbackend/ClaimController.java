@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,47 +30,28 @@ import jakarta.servlet.annotation.MultipartConfig;
 
 
 
-@MultipartConfig(
-		  fileSizeThreshold = 1024 * 1024 * 2, // 2MB
-		  maxFileSize = 1024 * 1024 * 10, // 10MB
-		  maxRequestSize = 1024 * 1024 * 50 // 50MB
-		)
-
 @RestController
 public class ClaimController {
 
   @Autowired
-  private Claim claim;
+  private ClaimService ClaimService;
   
   @CrossOrigin(origins = "*")
   @PostMapping("/claim")
-  public ResponseEntity<FileUploadResponse> uploadFile(@RequestParam("picture") MultipartFile file,
-                                                       @RequestParam("description") String description) {
-    String fileName = UUID.randomUUID().toString() + ".jpg";
-    String filePath = "C:/Users/louat/Desktop/data/" + fileName;
-    try {
-        file.transferTo(new File(filePath));
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-
-    String url = "http://localhost:8080/images/" + fileName;
-    Claim claim = new Claim();
-    claim.setDescription(description);
-    claim.setUrl(url);
-
-    return ResponseEntity.ok(new FileUploadResponse(url));
+  public ResponseEntity<Claim> uploadFile(@RequestParam("student_id") int student_id,@RequestParam("type") String type, @RequestParam("picture") MultipartFile file,@RequestParam("description") String description) {
+	  
+	try {
+		int flag = ClaimService.storeClaim(student_id, type, description, file);
+		if (flag ==1) {
+			Claim c = new Claim();
+			c.setDescription(description);
+			System.out.println(c.getDescription());
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
   }
 }
 
-class FileUploadResponse {
-  private String url;
 
-  public FileUploadResponse(String url) {
-    this.url = url;
-  }
-
-  public String getUrl() {
-    return url;
-  }
-}
