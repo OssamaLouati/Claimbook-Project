@@ -20,9 +20,11 @@ export class LoginuserService {
     return this.httpClient.get<any>('http://localhost:8082/user/'+email+'/'+password);
       
   }
+
   logout(): Observable<any> {
     return this.httpClient.post<any>("http://localhost:8082/user/logout", {});
   }
+  
   public setUser(user: any) {
     this.userSubject.next(user);
   }

@@ -21,20 +21,18 @@ export class SigninComponent implements OnInit {
 
     this.loginuserservice.loginUser(this.user.email,this.user.password).subscribe((res)=>{
       if(res!=null){
-       
+        this.user.id = res.id;
         this.user.bio=res.bio;
         this.user.email=res.email;
         this.user.filiere=res.filiere;
         this.user.name=res.name;
         this.user.niveau=res.niveau;
         this.user.pavillon=res.pavillon;
-        console.log(res.pavillon)
         this.user.room=res.room;
         this.user.roommate=res.roommate;
         this.user.skills=res.skills;
 
         console.log(this.user);
-
         // this.loginuserservice.setUser(this.user);
         alert("valid email/password")
       
@@ -44,13 +42,15 @@ export class SigninComponent implements OnInit {
 
         const userr = localStorage.getItem("currentUser"); // retrieve JSON string from localStorage
         const user = userr ? JSON.parse(userr) : {}
+        
         this.loginuserservice.setUser(user);
-        console.log(user);
+        console.log(user.id);
         this.router.navigate(["/profile"]);
       
       }else{
         alert("invalid email/password");
       }
-    })
+    }
+    )
   }
 }

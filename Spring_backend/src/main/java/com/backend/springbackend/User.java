@@ -29,19 +29,7 @@ public class User {
 	private int pavillon;
 	private boolean roommate;
 	
-	public User(Integer id, String email, String password, String name, String bio, String niveau, String filiere, String skills, int room, int pavillon, boolean roommate) {
-		this.id = id;
-		this.email = email;
-		this.password = password;
-		this.name = name;
-		this.bio = bio;
-		this.niveau = niveau;
-		this.filiere = filiere;
-		this.skills = skills;
-		this.room = room;
-		this.pavillon = pavillon;
-		this.roommate = roommate;
-	}
+	
 	
 	
 	public String getName(){

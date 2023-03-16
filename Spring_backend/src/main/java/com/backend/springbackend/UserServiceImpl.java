@@ -34,12 +34,15 @@ public class UserServiceImpl implements UserService {
 					flag=0;
 				}
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return flag;
 	}
+	
+	
 	@Override
 	public User finduser(String email, String password) throws SQLException {
 		

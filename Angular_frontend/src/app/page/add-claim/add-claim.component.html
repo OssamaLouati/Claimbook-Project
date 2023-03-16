@@ -1,6 +1,6 @@
-<div class="container">
+<!-- <div class="container">
     <h2 class="titre">
-        Claim a problem  --->
+        Claim a problem  
     </h2>
     <form>
         <div class="form-group">
@@ -12,6 +12,7 @@
                 </div>
               </div>
         </div>
+
         <div class="form-group">
           <label for="exampleFormControlSelect1"> Select problem</label>
           <select class="form-control" id="exampleFormControlSelect1" >
@@ -37,6 +38,22 @@
               </div>
              
           </div>
-        <button type="submit" class="btn1">Submit</button>
+        <button type="submit" class="btn1 text-3xl">Submit</button>
       </form>
+</div> -->
+<div class="container">
+<form enctype="multipart/form-data" (submit)="onSubmit()">
+  <label for="problem-select">Select the problem type:</label>
+  <select id="problem-select" name="type" [(ngModel)]="selectedProblem">
+    <option value="wifi">Wifi Problem</option>
+    <option value="electrical">Electrical Problem</option>
+    <option value="pipe">Pipe Problem</option>
+    <option value="material">Damaged Material</option>
+  </select>
+  <label>chose file</label>
+  <input type="file" name="picture" (change)="onFileSelected($event)">
+  <label>chose description</label>
+  <input type="text" name="description" [(ngModel)]="description">
+  <button type="submit">Upload</button>
+</form>
 </div>
