@@ -17,6 +17,14 @@ export class AddClaimComponent {
   selectedProblem: string;
   selectedFile: File | null = null;
   description: string = '';
+  onSelect(problem: string): void {
+    this.selectedProblem = problem;
+  }
+  isClicked = false;
+
+  onButtonClick() {
+    this.isClicked = true;
+  }
 
   constructor(
     private http: HttpClient,
@@ -35,7 +43,7 @@ export class AddClaimComponent {
 
   onSubmit(): void {
     const formData = new FormData();
-    const stored_user = localStorage.getItem("currentUser"); // retrieve JSON string from localStorage
+    const stored_user = localStorage.getItem("currentUser"); 
     const user = stored_user ? JSON.parse(stored_user) : {}
 
     formData.append('student_id', user.id)

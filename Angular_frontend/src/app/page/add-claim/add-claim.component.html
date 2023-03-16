@@ -1,48 +1,9 @@
-<!-- <div class="container">
-    <h2 class="titre">
-        Claim a problem  
-    </h2>
-    <form>
-        <div class="form-group">
-            <label for="email"> Your email</label>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2">@example.com</span>
-                </div>
-              </div>
-        </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlSelect1"> Select problem</label>
-          <select class="form-control" id="exampleFormControlSelect1" >
-            <option *ngFor="let claim of claims$ | async" >{{claim.name}}</option>
-      
-          </select>
-        </div>
-       
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"> problem's decription</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="describe your problem here !!"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"> Add photo</label>
-
-            <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile02" multiple>
-                  <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                  <div class="custom-file-span"><fa-icon [icon]="faCamera"></fa-icon></div>
-                </div>
-                
-              </div>
-             
-          </div>
-        <button type="submit" class="btn1 text-3xl">Submit</button>
-      </form>
-</div> -->
 <div class="container">
+  <h2 class="titre">
+    Claim a problem here  
+  </h2>
 <form enctype="multipart/form-data" (submit)="onSubmit()">
+  <div class="form-group">
   <label for="problem-select">Select the problem type:</label>
   <select id="problem-select" name="type" [(ngModel)]="selectedProblem">
     <option value="wifi">Wifi Problem</option>
@@ -50,10 +11,35 @@
     <option value="pipe">Pipe Problem</option>
     <option value="material">Damaged Material</option>
   </select>
-  <label>chose file</label>
-  <input type="file" name="picture" (change)="onFileSelected($event)">
+  <div class="button-group">
+    <button class="select-option" [class.selected]="selectedProblem === 'wifi'" (click)="onSelect('wifi')">Wifi Problem</button>
+    <button class="select-option" [class.selected]="selectedProblem === 'electrical'" (click)="onSelect('electrical')">Electrical Problem</button>
+    <button class="select-option" [class.selected]="selectedProblem === 'pipe'" (click)="onSelect('pipe')">Pipe Problem</button>
+    <button class="select-option" [class.selected]="selectedProblem === 'material'" (click)="onSelect('material')">Damaged Material</button>
+  </div>
+  </div>
+
+
+  <div class="form-group">
+  <label >Please upload a picture of the claim:</label>
+  <br>
+  <label for="file-upload" class="custom-file-upload">
+    <i class="fa fa-cloud-upload"></i> Choose File
+  </label>
+  <input class="hidden" id="file-upload" type="file" name="picture" (change)="onFileSelected($event)">
+</div>
+
+
+<div class="form-group">
   <label>chose description</label>
-  <input type="text" name="description" [(ngModel)]="description">
-  <button type="submit">Send Claim</button>
+  <br>
+  <textarea  name="description" [(ngModel)]="description"></textarea>
+</div>
+
+
+<div class="submit">
+  <button type="submit" class="submit_button" (click)="onButtonClick()">Send Claim</button>
+</div>
+
 </form>
 </div>
