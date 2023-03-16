@@ -40,8 +40,9 @@ public class ClaimController {
 
   @Autowired
   private Claim claim;
-
-  @PostMapping("/upload")
+  
+  @CrossOrigin(origins = "*")
+  @PostMapping("/claim")
   public ResponseEntity<FileUploadResponse> uploadFile(@RequestParam("picture") MultipartFile file,
                                                        @RequestParam("description") String description) {
     String fileName = UUID.randomUUID().toString() + ".jpg";

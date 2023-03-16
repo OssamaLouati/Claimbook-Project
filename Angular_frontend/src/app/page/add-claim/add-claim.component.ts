@@ -45,7 +45,7 @@ export class AddClaimComponent {
       formData.append('picture', this.selectedFile, this.selectedFile.name);
     }
 
-    this.http.post('http://localhost:8082/upload', formData).subscribe(
+    this.http.post('http://localhost:8082/claim', formData).subscribe(
       (response: any) => {
         console.log(response.url);
         // save the response.url to MySQL along with the description
