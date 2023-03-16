@@ -15,30 +15,31 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    flex-wrap: wrap;
+   
     
 }
 .section-image{
     width: 300px;
+    height: 300px;
     border: 1px solid #73451F;
     border-radius: 20px;
 
     
 }
-.about .about-content .about-text{
-    flex: 0 0 100%;
-    max-width: 100%;
+ .about-text{
+    flex: 0 0 60%;
+    max-width: 60%;
 }
-.about .about-content .about-text h3{
+.about-text h3{
     font-size: 24px;
     margin-bottom: 15px;
     font-weight: 700;
     color: #73451F;
 }
-.about .about-content .about-text h3 span{
+ .about-text h3 span{
     color: #000;
 }
-.about .about-content .about-text p{
+.about-text p{
     font-size: 16px;
     line-height: 25px;
     color: #000;
