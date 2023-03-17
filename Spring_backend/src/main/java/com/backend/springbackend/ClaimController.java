@@ -9,6 +9,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.sql.SQLException;
 import java.util.UUID;
+import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -52,6 +54,14 @@ public class ClaimController {
 	}
 	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
   }
+  
+  @CrossOrigin(origins = "*")
+  @GetMapping("/claims")
+  public List<Claim> getStudentClaims(@RequestParam("student_id") int student_id) throws SQLException {
+      Claim[] claimArray = ClaimService.getStudentsClaims(student_id);
+      return Arrays.asList(claimArray);
+  }
+  
 }
 
 

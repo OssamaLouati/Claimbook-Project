@@ -6,8 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.UUID;
-
+import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -54,10 +55,36 @@ public class ClaimServiceImpl implements ClaimService {
 	}
 
 	@Override
-	public Claim getClaims(int student_id) throws SQLException {
-		PreparedStatement statement = connection.prepareStatement("SELECT * FROM claims WHERE student_id ="+student_id+"");
-		ResultSet re =statement.executeQuery();
-		return null;
+	public Claim[] getStudentsClaims(int student_id) throws SQLException {
+		
+		ArrayList<Claim> claimsList = new ArrayList<>();
+		
+		PreparedStatement statement = connection.prepareStatement("SELECT * FROM claims WHERE student_id = ?");
+        statement.setInt(1, student_id);
+        ResultSet resultSet = statement.executeQuery();
+        
+        while (resultSet.next()) {
+            int claimId = resultSet.getInt("id");
+            int studentId = resultSet.getInt(student_id);
+            String type = resultSet.getString("type");
+            String description = resultSet.getString("description");
+            Timestamp dateCreated = resultSet.getTimestamp("dateCreated");
+            String state = resultSet.getString("state");
+            String picture_url = resultSet.getString("picture_url");
+            int room = resultSet.getInt("room");
+            int pavillon = resultSet.getInt("pavillon");
+
+            Claim claim = new Claim(claimId, studentId, type, description,dateCreated, state, picture_url, room, pavillon  );
+            
+            claimsList.add(claim);
+        }
+        Claim[] claimsArray = new Claim[claimsList.size()];
+        claimsList.toArray(claimsArray);
+
+        resultSet.close();
+        statement.close();
+
+        return claimsArray;
 	}
 	
 	
