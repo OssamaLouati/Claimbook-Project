@@ -7,8 +7,29 @@ from flask import Blueprint, jsonify, request
 import json
 from flask import Flask 
 from flask_cors import CORS
+import openai
 app = Flask(__name__)
 CORS(app)
+
+openai.api_key = "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"
+
+@app.route("/api/ask", methods=["POST"])
+def ask():
+    data = request.get_json()
+    prompt = data["prompt"]
+    response = generate_response(prompt)
+    return jsonify({"response": response})
+
+def generate_response(prompt):
+    response = openai.Completion.create(
+        engine="davinci",
+        prompt=prompt,
+        max_tokens=1024,
+        n=1,
+        stop=None,
+        temperature=0.5,
+    )
+    return response.choices[0].text.strip()
 
 def recommend2(nom):
     index_of_the_name = data[data.name == nom]['id'].values[0]

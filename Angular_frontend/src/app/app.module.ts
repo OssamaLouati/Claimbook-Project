@@ -29,6 +29,7 @@ import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { LogoutComponent } from './component/logout/logout.component';
 import { RecommendationComponent } from './component/recommendation/recommendation.component';
+import { SuggestsolutionComponent } from './page/suggestsolution/suggestsolution.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: SigninComponent },
   { path: 'claim', component: ClaimComponent },
-  
+  { path: 'suggestsolution', component: SuggestsolutionComponent },
+
 ];
 
 @NgModule({
@@ -55,6 +57,7 @@ const routes: Routes = [
     ProfileComponent,
     LogoutComponent,
     RecommendationComponent,
+    SuggestsolutionComponent,
 
     
   ],
