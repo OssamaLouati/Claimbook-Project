@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-table',
@@ -31,43 +32,47 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ClaimListComponent{
-	 countries$: Observable<Claim[]>;
-	 total$: Observable<number>;
+	//  countries$: Observable<Claim[]>;
+	//  total$: Observable<number>;
 
 	@ViewChildren(NgbdSortableHeader)
   	headers!: QueryList<NgbdSortableHeader>;
 
 	claims: Claim[] = [];
 
-	constructor(private http: HttpClient, public service: ClaimService) {
-		 this.countries$ = service.countries$;
-		 this.total$ = service.total$;
+	constructor(private http: HttpClient,private sanitizer: DomSanitizer ) { //public service: ClaimService
+		//  this.countries$ = service.countries$;
+		//  this.total$ = service.total$;
 	}
 	
 	 ngOnInit(): void {
-	// 	this.getStudentClaims();
-		console.log(this.countries$)
-		console.log("yesssssssss")
+		this.getStudentClaims();
+		
 	}
 
-	// getStudentClaims(): void {
-	// 	const stored_user = localStorage.getItem("currentUser"); 
-   	// 	const user = stored_user ? JSON.parse(stored_user) : {}
-	// 	const student_id = user.id;
-	// 	if (student_id) {
-	// 	  const url = `http://localhost:8082/claims?student_id=${student_id}`;
-	// 	  this.http.get<Claim[]>(url).subscribe(
-	// 		data => {
-	// 		  this.claims = data;
-	// 		},
-	// 		error => {
-	// 		  console.log(error);
-	// 		}
-	// 	  );
-	// 	} else {
-	// 	  console.log('student_id not found in localStorage');
-	// 	}
-	//   }
+	getTrustedUrl(url: string): any {
+		return this.sanitizer.bypassSecurityTrustUrl(url);
+	  }
+
+	 getStudentClaims(): void {
+	 	const stored_user = localStorage.getItem("currentUser"); 
+   	 	const user = stored_user ? JSON.parse(stored_user) : {}
+	 	const student_id = user.id;
+	 	if (student_id) {
+	 	  const url = `http://localhost:8082/claims?student_id=${student_id}`;
+	 	  this.http.get<Claim[]>(url).subscribe(
+	 		data => {
+	 		  this.claims = data;
+			   this.claims = this.claims.reverse();
+	 		},
+	 		error => {
+	 		  console.log(error);
+	 		}
+	 	  );
+	 	} else {
+	 	  console.log('student_id not found in localStorage');
+	 	}
+	   }
 
 	onSort({ column, direction }: SortEvent) {
 		// resetting other headers
@@ -77,8 +82,8 @@ export class ClaimListComponent{
 			}
 		});
 
-		 this.service.sortColumn = column;
-		 this.service.sortDirection = direction;
+		//  this.service.sortColumn = column;
+		//  this.service.sortDirection = direction;
   }
 
 }

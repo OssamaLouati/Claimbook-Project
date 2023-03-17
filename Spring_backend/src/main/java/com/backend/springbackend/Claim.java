@@ -21,13 +21,13 @@ public class Claim{
 	public String description;
 	public Timestamp dateCreated ;
 	public String state;
-	public String picure_url;
+	public String picture_url;
 	public int room;
 	public int pavillon;
 	
 	
 	public Claim(int id, int student_id, String type, String description, Timestamp dateCreated, String state,
-			String picure_url, int room, int pavillon) {
+			String picture_url, int room, int pavillon) {
 		super();
 		this.id = id;
 		this.student_id = student_id;
@@ -35,16 +35,11 @@ public class Claim{
 		this.description = description;
 		this.dateCreated = dateCreated;
 		this.state = state;
-		this.picure_url = picure_url;
+		this.picture_url = picture_url;
 		this.room = room;
 		this.pavillon = pavillon;
 	}
-	public String getPicure_url() {
-		return picure_url;
-	}
-	public void setPicure_url(String picure_url) {
-		this.picure_url = picure_url;
-	}
+	
 	public String getDescription() {
 		return description;
 	}

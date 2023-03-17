@@ -5,7 +5,7 @@ export interface Claim {
 	student_id: number;
 	type: string;
 	description: string;
-	dateCreated: Date;
+	dateCreated: String;
 	state: string;
 	picture_url: string;
 	room: number;
