@@ -1,9 +1,8 @@
 <div class="container">
+    
     <div class="header">
-
-        <h2 class="titre">My claims ---></h2>
+        <h2 class="titre">My claims :</h2>
         <a href="/addclaim"><button type="submit"  class="btn1">Add Claim</button></a>
-        
     </div>
 
     
@@ -26,9 +25,9 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col" sortable="name" (sort)="onSort($event)">problem name</th>
-                    <th scope="col" sortable="area" (sort)="onSort($event)">Status</th>
-                    <th scope="col" sortable="population" (sort)="onSort($event)">Date</th>
+                    <th scope="col" sortable="id" (sort)="onSort($event)">problem name</th>
+                    <th scope="col" sortable="student_id" (sort)="onSort($event)">Status</th>
+                    <th scope="col" sortable="description" (sort)="onSort($event)">Date</th>
                     <th scope="col"></th>
 
                 </tr>
@@ -38,10 +37,10 @@
                     <th scope="row">{{ country.id }}</th>
                     <td>
                         
-                        <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+                        <ngb-highlight [result]="country.description" [term]="service.searchTerm"></ngb-highlight>
                     </td>
-                    <td ><ngb-highlight [result]="country.area.toString()" [term]="service.searchTerm" [ngClass]="{'Done':country.area=='Done', 'Cancelled':country.area=='Cancelled'}" class="status" ></ngb-highlight></td>
-                    <td><ngb-highlight [result]="country.population.toString() " [term]="service.searchTerm"></ngb-highlight></td>
+                    <td ><ngb-highlight [result]="country.state.toString()" [term]="service.searchTerm" [ngClass]="{'Done':country.state=='Done', 'Cancelled':country.state=='Cancelled'}" class="status" ></ngb-highlight></td>
+                    <td><ngb-highlight [result]="country.description.toString() " [term]="service.searchTerm"></ngb-highlight></td>
                     <td><mat-icon class="text-orange-700">delete_forever</mat-icon></td>
                     <td ><a href="/addclaim"> <mat-icon>edit</mat-icon> </a> </td>
                 </tr>
@@ -59,4 +58,24 @@
             </select>
         </div>
     </form>
-</div>
+</div> 
+
+<!-- <table>
+    <thead>
+      <tr>
+        <th>Claim ID</th>
+        <th>Claim Text</th>
+        <th>Student ID</th>
+        <th>Date Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let claim of claims">
+        <td>{{ claim.id }}</td>
+        <td>{{ claim.description }}</td>
+        <td>{{ claim.student_id }}</td>
+        <td>{{ claim.state }}</td>
+        <td>{{ claim.dateCreated }}</td>
+      </tr>
+    </tbody>
+  </table> -->

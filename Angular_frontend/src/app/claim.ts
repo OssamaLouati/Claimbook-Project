@@ -1,7 +1,15 @@
+
+
 export interface Claim {
 	id: number;
-	name: string;
-	flag: string;
-	area: string;
-	population: Date;
+	student_id: number;
+	type: string;
+	description: string;
+	dateCreated: Date;
+	state: string;
+	picture_url: string;
+	room: number;
+	pavillon: number;
+
+
 }

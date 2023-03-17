@@ -2,7 +2,7 @@ import { User } from 'src/app/user';
 import { Component , OnInit , Input , Output } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
-import { CLAIMS } from 'src/app/claims';
+// import { CLAIMS } from 'src/app/claims';
 import { Claim } from 'src/app/claim';
 import { ClaimService } from 'src/app/service/claim-service.service';
 import { Observable } from 'rxjs';

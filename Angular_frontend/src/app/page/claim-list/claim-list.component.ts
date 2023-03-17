@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { AsyncPipe, DecimalPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { QueryList, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { Claim } from '../../claim';
 import { ClaimService } from '../../service/claim-service.service';
 import { NgbdSortableHeader, SortEvent } from '../../directive/sortable.directive';
 import { FormsModule } from '@angular/forms';
 import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from '@angular/material/icon';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-table',
@@ -31,16 +31,43 @@ import {MatIconModule} from '@angular/material/icon';
 })
 
 export class ClaimListComponent{
-  countries$: Observable<Claim[]>;
-	total$: Observable<number>;
+	 countries$: Observable<Claim[]>;
+	 total$: Observable<number>;
 
 	@ViewChildren(NgbdSortableHeader)
-  headers!: QueryList<NgbdSortableHeader>;
+  	headers!: QueryList<NgbdSortableHeader>;
 
-	constructor(public service: ClaimService) {
-		this.countries$ = service.countries$;
-		this.total$ = service.total$;
+	claims: Claim[] = [];
+
+	constructor(private http: HttpClient, public service: ClaimService) {
+		 this.countries$ = service.countries$;
+		 this.total$ = service.total$;
 	}
+	
+	 ngOnInit(): void {
+	// 	this.getStudentClaims();
+		console.log(this.countries$)
+		console.log("yesssssssss")
+	}
+
+	// getStudentClaims(): void {
+	// 	const stored_user = localStorage.getItem("currentUser"); 
+   	// 	const user = stored_user ? JSON.parse(stored_user) : {}
+	// 	const student_id = user.id;
+	// 	if (student_id) {
+	// 	  const url = `http://localhost:8082/claims?student_id=${student_id}`;
+	// 	  this.http.get<Claim[]>(url).subscribe(
+	// 		data => {
+	// 		  this.claims = data;
+	// 		},
+	// 		error => {
+	// 		  console.log(error);
+	// 		}
+	// 	  );
+	// 	} else {
+	// 	  console.log('student_id not found in localStorage');
+	// 	}
+	//   }
 
 	onSort({ column, direction }: SortEvent) {
 		// resetting other headers
@@ -50,8 +77,8 @@ export class ClaimListComponent{
 			}
 		});
 
-		this.service.sortColumn = column;
-		this.service.sortDirection = direction;
+		 this.service.sortColumn = column;
+		 this.service.sortDirection = direction;
   }
 
 }
