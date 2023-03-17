@@ -2,20 +2,20 @@
   <h2 class="titre">
     Claim a problem here  
   </h2>
-<form enctype="multipart/form-data" (submit)="onSubmit()">
+<form (submit)="onSubmit()">
   <div class="form-group">
   <label for="problem-select">Select the problem type:</label>
-  <select id="problem-select" name="type" [(ngModel)]="selectedProblem">
+  <select id="problem-select" name="type" [(ngModel)]="selectedProblem" >
     <option value="wifi">Wifi Problem</option>
     <option value="electrical">Electrical Problem</option>
     <option value="pipe">Pipe Problem</option>
     <option value="material">Damaged Material</option>
   </select>
   <div class="button-group">
-    <button class="select-option" [class.selected]="selectedProblem === 'wifi'" (click)="onSelect('wifi')">Wifi Problem</button>
-    <button class="select-option" [class.selected]="selectedProblem === 'electrical'" (click)="onSelect('electrical')">Electrical Problem</button>
-    <button class="select-option" [class.selected]="selectedProblem === 'pipe'" (click)="onSelect('pipe')">Pipe Problem</button>
-    <button class="select-option" [class.selected]="selectedProblem === 'material'" (click)="onSelect('material')">Damaged Material</button>
+    <button class="select-option" [class.selected]="selectedProblem === 'wifi'" (click)="onSelect('wifi')" type="button">Wifi Problem</button>
+    <button class="select-option" [class.selected]="selectedProblem === 'electrical'" (click)="onSelect('electrical')" type="button">Electrical Problem</button>
+    <button class="select-option" [class.selected]="selectedProblem === 'pipe'" (click)="onSelect('pipe')" type="button">Pipe Problem</button>
+    <button class="select-option" [class.selected]="selectedProblem === 'material'" (click)="onSelect('material')" type="button">Damaged Material</button>
   </div>
   </div>
 
@@ -38,7 +38,7 @@
 
 
 <div class="submit">
-  <button type="submit" class="submit_button" (click)="onButtonClick()">Send Claim</button>
+  <button type="submit" class="submit_button">Send Claim</button>
 </div>
 
 </form>

@@ -6,6 +6,7 @@ import { Claim } from 'src/app/claim';
 import { ClaimService } from 'src/app/service/claim-service.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-claim',
   templateUrl: './add-claim.component.html',
@@ -17,22 +18,19 @@ export class AddClaimComponent {
   selectedProblem: string;
   selectedFile: File | null = null;
   description: string = '';
-  onSelect(problem: string): void {
-    this.selectedProblem = problem;
-  }
-  isClicked = false;
-
-  onButtonClick() {
-    this.isClicked = true;
-  }
-
+  
+  
   constructor(
     private http: HttpClient,
-    public claimService : ClaimService
+    public claimService : ClaimService,
+    private router: Router
     ) { 
       this.claims$ = claimService.countries$;
       this.selectedProblem = 'wifi';
       
+    }
+    onSelect(problem: string): void {
+      this.selectedProblem = problem;
     }
 
   onFileSelected(event: any): void {
@@ -52,13 +50,18 @@ export class AddClaimComponent {
     if (this.selectedFile) {
       formData.append('picture', this.selectedFile, this.selectedFile.name);
     }
-
+    
     this.http.post('http://localhost:8082/claim', formData).subscribe(
       (response: any) => {
-        console.log(response.url);
-        // save the response.url to MySQL along with the description
+        // handle success
+      },
+      (error: any) => {
+        // handle error
+        console.error(error);
       }
-    );
-  }
+      );
+      
+      this.router.navigate(['/profile']);
+    }
 
 }
