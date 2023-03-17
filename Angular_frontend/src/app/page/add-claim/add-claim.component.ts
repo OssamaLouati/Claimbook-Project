@@ -1,5 +1,6 @@
 import { User } from 'src/app/user';
 import { Component , OnInit , Input , Output } from '@angular/core';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { CLAIMS } from 'src/app/claims';
 import { Claim } from 'src/app/claim';
@@ -7,12 +8,14 @@ import { ClaimService } from 'src/app/service/claim-service.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SuccessComponent } from 'src/app/success/success.component';
 @Component({
   selector: 'app-add-claim',
   templateUrl: './add-claim.component.html',
   styleUrls: ['./add-claim.component.css']
 })
 export class AddClaimComponent {
+  modalRef: MdbModalRef<SuccessComponent> | null = null;
   faCamera=faCamera
   claims$: Observable<Claim[]>;
   selectedProblem: string;
@@ -23,12 +26,14 @@ export class AddClaimComponent {
   constructor(
     private http: HttpClient,
     public claimService : ClaimService,
+    private modalService: MdbModalService,
     private router: Router
     ) { 
       this.claims$ = claimService.countries$;
       this.selectedProblem = 'wifi';
       
     }
+   
     onSelect(problem: string): void {
       this.selectedProblem = problem;
     }
@@ -61,7 +66,7 @@ export class AddClaimComponent {
       }
       );
       
-      this.router.navigate(['/profile']);
+      this.modalRef = this.modalService.open(SuccessComponent);
     }
 
 }

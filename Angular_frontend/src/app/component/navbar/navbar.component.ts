@@ -26,6 +26,7 @@ export class NavbarComponent {
     this.loginuserservice.logout().subscribe(() => {
       // Redirect the user to the login page or home page
       this.loginuserservice.clearUser();
+      localStorage.removeItem('currentUser');
       this.router.navigate(["/"]);
     });
   }
