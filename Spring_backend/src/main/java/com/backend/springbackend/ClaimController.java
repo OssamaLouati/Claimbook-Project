@@ -38,10 +38,10 @@ public class ClaimController {
   
   @CrossOrigin(origins = "*")
   @PostMapping("/claim")
-  public ResponseEntity<Claim> uploadFile(@RequestParam("student_id") int student_id,@RequestParam("type") String type, @RequestParam("picture") MultipartFile file,@RequestParam("description") String description) {
+  public ResponseEntity<Claim> uploadFile(@RequestParam("student_id") int student_id,@RequestParam("type") String type, @RequestParam("picture") MultipartFile file,@RequestParam("description") String description,@RequestParam("room") int room,@RequestParam("pavillon") int pavillon) {
 	  
 	try {
-		int flag = ClaimService.storeClaim(student_id, type, description, file);
+		int flag = ClaimService.storeClaim(student_id, type, description, file, room, pavillon);
 		if (flag ==1) {
 			Claim c = new Claim();
 			c.setDescription(description);

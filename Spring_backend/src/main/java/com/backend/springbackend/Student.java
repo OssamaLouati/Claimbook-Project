@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-public class User {
+public class Student {
 	
 	
 	private Integer id;
@@ -39,7 +39,7 @@ public class User {
 
 
 
-	public User(Integer id, String email, String password, String name, String bio, String niveau, String filiere,
+	public Student(Integer id, String email, String password, String name, String bio, String niveau, String filiere,
 			String skills, int room, int pavillon, boolean roommate) {
 		super();
 		this.id = id;

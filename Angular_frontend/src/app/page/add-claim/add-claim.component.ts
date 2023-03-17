@@ -55,6 +55,8 @@ export class AddClaimComponent {
     if (this.selectedFile) {
       formData.append('picture', this.selectedFile, this.selectedFile.name);
     }
+    formData.append('room', user.room);
+    formData.append('pavillon', user.pavillon);
     
     this.http.post('http://localhost:8082/claim', formData).subscribe(
       (response: any) => {

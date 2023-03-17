@@ -21,16 +21,16 @@ import jakarta.servlet.http.HttpSession;
 
 
 @Controller
-public class UserController {
+public class StudentController {
 	@Autowired
 	private UserService userservice;
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping("/user/{email}/{password}")
-	public ResponseEntity<User> UserLogin(@PathVariable("email") String email1 , @PathVariable("password") String password1, HttpServletRequest request) {
+	public ResponseEntity<Student> UserLogin(@PathVariable("email") String email1 , @PathVariable("password") String password1, HttpServletRequest request) {
 		int flag = userservice.loginValidation(email1, password1);
 		Integer result = flag;
-		User user= null;
+		Student user= null;
 		 if (result==1) {
 		      HttpSession session = request.getSession(true);
 		      session.setAttribute("email", email1);

@@ -22,7 +22,7 @@ public class ClaimServiceImpl implements ClaimService {
 	}
 
 	@Override
-	public int storeClaim(int student_id, String type, String description, MultipartFile picure) {
+	public int storeClaim(int student_id, String type, String description, MultipartFile picure, int room, int pavillon) {
 		String fileName = UUID.randomUUID().toString() + ".jpg";
 	    String picture_url = "C:/Users/louat/Desktop/data/" + fileName;
 	  
@@ -34,11 +34,13 @@ public class ClaimServiceImpl implements ClaimService {
 	    	System.out.println(e.getMessage());
 	    }
 		try {
-			PreparedStatement statement = connection.prepareStatement("INSERT INTO claims (student_id, type, description, picture_url) VALUES (?, ?, ?, ?)");
+			PreparedStatement statement = connection.prepareStatement("INSERT INTO claims (student_id, type, description, picture_url, room, pavillon) VALUES (?, ?, ?, ?, ?, ?)");
 	        statement.setInt(1, student_id);
 	        statement.setString(2, type);
 	        statement.setString(3, description);
 	        statement.setString(4, picture_url);
+	        statement.setInt(5, room);
+	        statement.setInt(6, pavillon);
 	        statement.executeUpdate();
 	        statement.close();
 	        flag =1;
@@ -49,6 +51,13 @@ public class ClaimServiceImpl implements ClaimService {
 			System.out.println(e.getMessage());
 		}
 		return flag;
+	}
+
+	@Override
+	public Claim getClaims(int student_id) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement("SELECT * FROM claims WHERE student_id ="+student_id+"");
+		ResultSet re =statement.executeQuery();
+		return null;
 	}
 	
 	

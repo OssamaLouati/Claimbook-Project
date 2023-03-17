@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class StudentServiceImpl implements UserService {
 	
 	Connection connection;
 	private int flag = 0;
 	
-	public UserServiceImpl() throws SQLException{
+	public StudentServiceImpl() throws SQLException{
 		connection = DBUtil.getConnection();
 	}
 	
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
-	public User finduser(String email, String password) throws SQLException {
+	public Student finduser(String email, String password) throws SQLException {
 		
 			PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE email ='"+email+"' AND password ='"+password+"'");
 			ResultSet re =statement.executeQuery();
@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
 			    // extract other user properties as needed
 			    
 
-			    User user = new User((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate);
+			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate);
 			    // set other user properties as needed
 
 			    return user;

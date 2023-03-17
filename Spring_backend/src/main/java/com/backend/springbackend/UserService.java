@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface UserService {
 	
 	public int loginValidation(String email , String password);
-	public User finduser(String email , String password) throws SQLException;
+	public Student finduser(String email , String password) throws SQLException;
 
 }
