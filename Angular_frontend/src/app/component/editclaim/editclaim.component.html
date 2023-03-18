@@ -1,10 +1,10 @@
 <div class="modal-header p-6">
-    <h5 class="modal-title" id="exampleModalLabel">Edit Claim N°{{claim_id}}:</h5>
+  <h5 class="modal-title" id="exampleModalLabel">Edit Claim N°{{claim_id}}:</h5>
     
-    <form (submit)="onSubmit()">
+  <form (submit)="onSubmit()">
         <div class="form-group">
         <label for="problem-select">Change the problem type:</label>
-        <select id="problem-select" name="type" [(ngModel)]="selectedProblem" >
+        <select id="problem-select" name="type" [(ngModel)]="selectedProblem" required>
           <option value="wifi">Wifi Problem</option>
           <option value="electrical">Electrical Problem</option>
           <option value="pipe">Pipe Problem</option>
@@ -25,23 +25,22 @@
         <label for="file-upload" class="custom-file-upload">
           <i class="fa fa-cloud-upload"></i> Choose File
         </label>
-        <input class="hidden" id="file-upload" type="file" name="picture" (change)="onFileSelected($event)">
+        <input class="hidden" id="file-upload" type="file" name="picture" (change)="onFileSelected($event)" required>
       </div>
       
       
       <div class="form-group">
         <label>Change the description:</label>
         <br>
-        <textarea name="description" [(ngModel)]="description" placeholder="{{ description }}"></textarea>
+        <textarea name="description" [(ngModel)]="description" placeholder="{{ description }}" required></textarea>
       </div>
       
       
       <div class="flex p-6 ">
         <button type="button" class="btn btn-secondary mr-6" (click)="modalRef.close()">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save changes</button>
     </div>
-      
-      </form>
+  </form>
       
 </div>
 

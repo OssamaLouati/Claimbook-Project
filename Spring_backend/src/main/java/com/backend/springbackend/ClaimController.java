@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -61,6 +62,27 @@ public class ClaimController {
       Claim[] claimArray = ClaimService.getStudentsClaims(student_id);
       return Arrays.asList(claimArray);
   }
+  
+  
+  @CrossOrigin(origins = "*")
+  @PutMapping("/claim")
+  public ResponseEntity<Claim> updateStudentClaim(@RequestParam("id") int id,@RequestParam("type") String type, @RequestParam("picture") MultipartFile file,@RequestParam("description") String description,@RequestParam("room") int room,@RequestParam("pavillon") int pavillon) throws SQLException {
+	  
+	  try {
+			int flag = ClaimService.updateClaim(id, type, description, file, room, pavillon);
+			if (flag ==1) {
+				Claim c = new Claim();
+				c.setDescription(description);
+				System.out.println(c.getDescription());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+	  
+  }
+  
+  
   
 }
 

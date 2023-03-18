@@ -30,6 +30,7 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { LogoutComponent } from './component/logout/logout.component';
 import { SuccessComponent } from './component/success/success.component';
 import { EditclaimComponent } from './component/editclaim/editclaim.component';
+import { SuccessupdateclaimComponent } from './component/successupdateclaim/successupdateclaim.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
@@ -58,6 +59,7 @@ const routes: Routes = [
     LogoutComponent,
     SuccessComponent,
     EditclaimComponent,
+    SuccessupdateclaimComponent,
 
     
   ],

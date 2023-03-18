@@ -86,6 +86,39 @@ public class ClaimServiceImpl implements ClaimService {
 
         return claimsArray;
 	}
+
+	@Override
+	public int updateClaim(int id, String type, String description, MultipartFile picure, int room, int pavillon) throws SQLException {
+		int rowsAffected = 0;
+		String fileName = UUID.randomUUID().toString() + ".jpg";
+	    String picture_url = "C:/Users/louat/Desktop/data/" + fileName;
+	  
+	    try {
+	    	picure.transferTo(new File(picture_url));
+	    	flag =1;
+	    } catch (IOException e) {
+	    	flag =0;
+	    	System.out.println(e.getMessage());
+	    }
+	    try {
+	    	PreparedStatement statement = connection.prepareStatement("UPDATE claims SET type=?, description=?, picture_url=? WHERE id=?");
+	    	statement.setString(1, type);
+	        statement.setString(2, description);
+	        statement.setString(3, picture_url);
+	        statement.setInt(4, id);
+	        statement.executeUpdate();
+	        statement.close();
+	    	
+	    } catch(SQLException e){
+	    	flag =0;
+			System.out.println(e.getMessage());
+	    	
+	    }
+		
+		
+		
+		return rowsAffected;
+	}
 	
 	
 
