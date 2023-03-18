@@ -23,11 +23,13 @@ public class Student {
 	public String name;
 	private String bio;
 	private String niveau;
-	private String filiere;
-	private String skills;
 	private int room;
 	private int pavillon;
 	private boolean roommate;
+	private String filiere;
+	private String skills;
+	private String avatar;
+	private String gender;
 	
 	
 	
