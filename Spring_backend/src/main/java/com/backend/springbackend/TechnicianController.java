@@ -1,7 +1,5 @@
 package com.backend.springbackend;
 
-
-
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,44 +17,33 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-
 @Controller
-public class StudentController {
+public class TechnicianController {
 	@Autowired
-	private StudentService userservice;
+	private TechnicianService technicianservice;
 	
 	@CrossOrigin(origins = "*")
-	@GetMapping("/user/{email}/{password}")
-	public ResponseEntity<Student> UserLogin(@PathVariable("email") String email1 , @PathVariable("password") String password1, HttpServletRequest request) {
-		int flag = userservice.loginValidation(email1, password1);
+	@GetMapping("/technician/{email}/{password}")
+	public ResponseEntity<Technician> TechnicianLogin(@PathVariable("email") String email , @PathVariable("password") String password, HttpServletRequest request) {
+		int flag = technicianservice.loginValidationTechnician(email, password);
 		Integer result = flag;
-		Student user= null;
+		Technician technician= null;
 		 if (result==1) {
 		      HttpSession session = request.getSession(true);
-		      session.setAttribute("email", email1);
+		      session.setAttribute("email", email);
 		      try {
-			     user = userservice.finduser(email1, password1);
-				System.out.println(user.getName());
+		    	  technician = technicianservice.findTechnician(email, password);
+				System.out.println(technician.getName());
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		      return ResponseEntity.ok(user);
+		      return ResponseEntity.ok(technician);
 		    } else {
 		      return ResponseEntity.badRequest().build();
 		    }
 				
 		
 	}
-	@CrossOrigin(origins = "*")
-	@PostMapping("user/logout")
-	public ResponseEntity<?> logout(HttpServletRequest request) {
-	    HttpSession session = request.getSession(false);
-	    if (session != null) {
-	      session.invalidate();
-	    }
-	    return ResponseEntity.ok().build();
-	 }
-	
 
 }

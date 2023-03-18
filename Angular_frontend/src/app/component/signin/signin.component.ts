@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginuserService } from 'src/app/service/loginuser.service';
 import { User } from 'src/app/user';
+import { Technician } from 'src/app/technician';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  isTechnicalExpert = false;
-
   
+  isTechnicalExpert = false;
+  technician: Technician = new Technician();
   user:User = new User();
+
   constructor(private loginuserservice: LoginuserService, private router: Router){
   
   }
@@ -25,9 +27,37 @@ export class SigninComponent implements OnInit {
   
 
   userLogin(){
+
     if (this.isTechnicalExpert) {
       
+      this.loginuserservice.loginTechnician(this.user.email,this.user.password).subscribe((res)=>{
+        if(res!=null){
+          this.technician.id = res.id;
+          this.technician.email=res.email;
+          this.technician.name=res.name;
+  
+          console.log(this.technician);
+          
+          
+          const TechnicianJson = JSON.stringify(this.technician);
+          localStorage.setItem('currentUser', TechnicianJson);
+          
+          const tech = localStorage.getItem("currentUser"); 
+          const user = tech ? JSON.parse(tech) : {}
+          
+          this.loginuserservice.setTechnician(this.technician);
+          console.log(this.technician.id);
+          // this.router.navigate(["/profile"]);
+          alert("Technician Successfully logged in as " + this.technician.name);
+        
+        }else{
+          alert("invalid email/password");
+        }
+      }
+      )
+      
     } else {
+
       this.loginuserservice.loginStudent(this.user.email,this.user.password).subscribe((res)=>{
         if(res!=null){
           this.user.id = res.id;

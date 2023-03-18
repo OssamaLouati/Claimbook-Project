@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentServiceImpl implements UserService {
+public class StudentServiceImpl implements StudentService {
 	
 	Connection connection;
 	private int flag = 0;
@@ -58,18 +58,14 @@ public class StudentServiceImpl implements UserService {
 			    String userBio = re.getString("bio");
 			    String userSkills = re.getString("skills");
 			    long room = re.getLong("room");
-			    long pav = re.getLong("pavillon");
-			 
-			    String userniveau = re.getString("niveau");
-				 
+			    long pav = re.getLong("pavillon");			 
+			    String userniveau = re.getString("niveau");				 
 			    String userfiliere = re.getString("filiere");
-			    Boolean roommate = re.getBoolean("roommate");
-			    
-			    // extract other user properties as needed
-			    
+			    Boolean roommate = re.getBoolean("roommate");	   
+	    
 
 			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate);
-			    // set other user properties as needed
+
 
 			    return user;
 			} else {
