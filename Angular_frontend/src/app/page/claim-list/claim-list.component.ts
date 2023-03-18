@@ -10,6 +10,8 @@ import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootst
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { EditclaimComponent } from 'src/app/component/editclaim/editclaim.component';
 
 @Component({
   selector: 'app-table',
@@ -35,12 +37,13 @@ export class ClaimListComponent{
 	//  countries$: Observable<Claim[]>;
 	//  total$: Observable<number>;
 
+
 	@ViewChildren(NgbdSortableHeader)
   	headers!: QueryList<NgbdSortableHeader>;
-
+	modalRef: MdbModalRef<EditclaimComponent> | null = null;
 	claims: Claim[] = [];
 
-	constructor(private http: HttpClient,private sanitizer: DomSanitizer ) { //public service: ClaimService
+	constructor(private http: HttpClient,private sanitizer: DomSanitizer, private modalService: MdbModalService ) { //public service: ClaimService
 		//  this.countries$ = service.countries$;
 		//  this.total$ = service.total$;
 	}
@@ -52,9 +55,13 @@ export class ClaimListComponent{
 
 	getTrustedUrl(url: string): any {
 		return this.sanitizer.bypassSecurityTrustUrl(url);
-	  }
+	}
 
-	 getStudentClaims(): void {
+	openModal(claim_id: number, description: string, type: string ) {
+		this.modalRef = this.modalService.open(EditclaimComponent, {data: {claim_id, description, type}});
+	}
+
+	getStudentClaims(): void {
 	 	const stored_user = localStorage.getItem("currentUser"); 
    	 	const user = stored_user ? JSON.parse(stored_user) : {}
 	 	const student_id = user.id;

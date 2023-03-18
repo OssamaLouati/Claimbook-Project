@@ -8,7 +8,7 @@ import { ClaimService } from 'src/app/service/claim-service.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { SuccessComponent } from 'src/app/success/success.component';
+import { SuccessComponent } from 'src/app/component/success/success.component';
 @Component({
   selector: 'app-add-claim',
   templateUrl: './add-claim.component.html',
@@ -34,9 +34,9 @@ export class AddClaimComponent {
       
     }
    
-    onSelect(problem: string): void {
-      this.selectedProblem = problem;
-    }
+  onSelect(problem: string): void {
+     this.selectedProblem = problem;
+  }
 
   onFileSelected(event: any): void {
     if (event.target.files && event.target.files.length > 0) {
