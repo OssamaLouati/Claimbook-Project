@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { HttpClient } from '@angular/common/http';
+import { SuccessupdateclaimComponent } from '../successupdateclaim/successupdateclaim.component';
 
 @Component({
   selector: 'app-editclaim',
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./editclaim.component.css']
 })
 export class EditclaimComponent {
+  modalRef2: MdbModalRef<SuccessupdateclaimComponent> | null = null;
   claim_id: number;
   description: string;
   type: string;
@@ -16,7 +18,7 @@ export class EditclaimComponent {
   selectedFile: File | null = null;
  
 
-  constructor(private http: HttpClient,private router: Router, public modalRef: MdbModalRef<EditclaimComponent>, private activatedRoute: ActivatedRoute) {
+  constructor(private modalService: MdbModalService, private http: HttpClient,private router: Router, public modalRef: MdbModalRef<EditclaimComponent>, private activatedRoute: ActivatedRoute) {
     this.claim_id = activatedRoute.snapshot.params['claim_id'];
     this.description = activatedRoute.snapshot.params['description'];
     this.type = activatedRoute.snapshot.params['type'];
@@ -29,7 +31,9 @@ export class EditclaimComponent {
   }
   onSelect(problem: string): void {
     this.selectedProblem = problem;
- }
+  }
+
+  
 
  onFileSelected(event: any): void {
   if (event.target.files && event.target.files.length > 0) {
@@ -57,7 +61,9 @@ export class EditclaimComponent {
       (error: any) => {
         console.error(error);
       }
-      );
+  );
+  this.modalRef.close()
+  this.modalRef = this.modalService.open(SuccessupdateclaimComponent);
   
  }
 
