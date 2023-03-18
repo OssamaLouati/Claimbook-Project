@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserService {
+public interface StudentService {
 	
 	public int loginValidation(String email , String password);
-	public User finduser(String email , String password) throws SQLException;
+	public Student finduser(String email , String password) throws SQLException;
 
 }
