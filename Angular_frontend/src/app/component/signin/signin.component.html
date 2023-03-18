@@ -1,6 +1,6 @@
-<div class="container">
+<!-- <div class="container">
     <h2 class="titre">
-        Login --->
+        Login:
     </h2>
     <form (ngSubmit)="userLogin()">
         <div class="form-group">
@@ -21,4 +21,43 @@
         <button type="submit"   class="btn1">login</button>
       </form>
       
-</div>
+</div> -->
+
+
+
+  <body>
+    <div class="login-card">
+      <h2>Login</h2>
+      <h3>Enter your credentials</h3>
+      <form class="login-form" (ngSubmit)="userLogin()">
+        <input
+          spellcheck="false"
+          class="control"
+          type="text"
+          id="email" 
+          name="email" 
+          [(ngModel)]="user.email"
+          placeholder="email"
+        />
+        <div class="password">
+          <input
+            name="password" 
+            [(ngModel)]="user.password" 
+            spellcheck="false"
+            class="control"
+            id="password"
+            type="password"
+            placeholder="Password"
+          />
+          <button
+            class="toggle"
+            type="button"
+            onclick="togglePassword(this)"
+          ></button>
+        </div>
+        <button class="control" type="submit" >LOGIN</button>
+      </form>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+

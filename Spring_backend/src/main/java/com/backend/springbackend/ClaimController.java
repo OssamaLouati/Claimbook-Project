@@ -72,9 +72,7 @@ public class ClaimController {
 	  try {
 			int flag = ClaimService.updateClaim(id, type, description, file, room, pavillon);
 			if (flag ==1) {
-				Claim c = new Claim();
-				c.setDescription(description);
-				System.out.println(c.getDescription());
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

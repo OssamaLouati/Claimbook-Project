@@ -25,7 +25,6 @@ public class Claim{
 	public int room;
 	public int pavillon;
 	
-	
 	public Claim(int id, int student_id, String type, String description, Timestamp dateCreated, String state,
 			String picture_url, int room, int pavillon) {
 		super();
@@ -39,6 +38,7 @@ public class Claim{
 		this.room = room;
 		this.pavillon = pavillon;
 	}
+	
 	
 	public String getDescription() {
 		return description;
