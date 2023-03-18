@@ -10,5 +10,6 @@ public interface ClaimService {
 	public int storeClaim(int student_id, String type, String description, MultipartFile picure, int room, int pavillon);
 	public Claim[] getStudentsClaims(int student_id) throws SQLException;
 	public int updateClaim(int id, String type, String description, MultipartFile picure, int room, int pavillon) throws SQLException;
+	public int deleteClaim(int id) throws SQLException;
 
 }

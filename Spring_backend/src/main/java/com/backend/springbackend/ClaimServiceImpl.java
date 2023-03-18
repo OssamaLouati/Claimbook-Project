@@ -119,6 +119,23 @@ public class ClaimServiceImpl implements ClaimService {
 		
 		return rowsAffected;
 	}
+
+	@Override
+	public int deleteClaim(int id) throws SQLException {
+		int flag = 0;
+		try {
+			PreparedStatement statement = connection.prepareStatement("DELETE FROM claims WHERE id = ?");
+			statement.setInt(1, id);
+			statement.executeUpdate();
+			flag =1;
+		} catch(SQLException e) {
+			flag =0;
+			System.out.println(e.getMessage());
+			
+		}
+		
+		return flag;
+	}
 	
 	
 
