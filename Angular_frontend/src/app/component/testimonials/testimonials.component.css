@@ -42,6 +42,7 @@
   .module1 h3{
     align-self: flex-end;
   }
+  img{width: 200px;}
 
  /* Carousel container */
  :host ::ng-deep .carousel-indicators button
