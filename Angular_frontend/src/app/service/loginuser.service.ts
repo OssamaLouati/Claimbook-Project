@@ -15,10 +15,8 @@ export class LoginuserService {
   constructor(private httpClient: HttpClient) { 
   
   }
-  loginUser(email: string ,password: string ): Observable<any>{
-   
+  loginStudent(email: string ,password: string ): Observable<any>{
     return this.httpClient.get<any>('http://localhost:8082/user/'+email+'/'+password);
-      
   }
 
   logout(): Observable<any> {

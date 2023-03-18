@@ -27,7 +27,7 @@ export class NavbarComponent {
       // Redirect the user to the login page or home page
       this.loginuserservice.clearUser();
       localStorage.removeItem('currentUser');
-      this.router.navigate(["/"]);
+      this.router.navigate(["/login"]);
     });
   }
   

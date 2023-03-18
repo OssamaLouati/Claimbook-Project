@@ -112,7 +112,9 @@ button {
 }
 
 .login-card > h2 {
+  width: auto;
   font-size: 36px;
+  display: inline-block;
   font-weight: 600;
   margin: 0 0 6px;
 }
@@ -151,6 +153,26 @@ button {
   transition: transform 0.375s ease-in-out;
 }
 .login-form > button.control:hover {
+  transform: scale(1.05);
+}
+.login-form > button.control22 {
+  cursor: pointer;
+  margin: auto;
+  width: 60%;
+  height: 56px;
+  padding: 0 16px;
+  background: #6b5c95;
+  border-radius: 10px 0px 10px 0px;
+  color: #f9f9f9;
+  border: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: transform 0.375s ease-in-out;
+}
+.login-form > button.control22:hover {
   transform: scale(1.05);
 }
 

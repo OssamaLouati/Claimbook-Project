@@ -27,7 +27,7 @@
 
   <body>
     <div class="login-card">
-      <h2>Login</h2>
+      <h2>{{ isTechnicalExpert ? 'Login as Technical Expert' : 'Login as Student' }}</h2>
       <h3>Enter your credentials</h3>
       <form class="login-form" (ngSubmit)="userLogin()">
         <input
@@ -56,6 +56,10 @@
           ></button>
         </div>
         <button class="control" type="submit" >LOGIN</button>
+
+        <button class="control22" type="button" (click)="toggleLoginType()">
+            {{ isTechnicalExpert ? 'Switch to student' : 'Switch to Technical Expert' }}
+        </button>
       </form>
     </div>
     <script type="text/javascript" src="main.js"></script>
