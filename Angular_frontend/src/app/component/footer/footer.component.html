@@ -9,10 +9,13 @@
     
         <div class="div5">  
               <h3>Contact us</h3> 
-              <input type="text" placeholder="Name">
-              <input type="email" placeholder="Email" >
-              <textarea name="message" id="" cols="10" rows="5" placeholder="message"></textarea>
-              <button class="btn1">send</button>
+              
+              <form class="div5" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+                <input type="text" placeholder="Name" name="name" ngModel required #name="ngModel">
+                <input type="text" placeholder="Email" email name="email" ngModel required #email="ngModel">
+                <textarea placeholder="Messages" name="messages" cols="10" rows="5" ngModel required #messages="ngModel"></textarea>
+                <input class="btn1" type="submit" value="Send">
+            </form>
 
         </div>
         

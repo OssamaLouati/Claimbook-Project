@@ -61,11 +61,15 @@ public class StudentServiceImpl implements StudentService {
 			    long pav = re.getLong("pavillon");			 
 			    String userniveau = re.getString("niveau");				 
 			    String userfiliere = re.getString("filiere");
-			    Boolean roommate = re.getBoolean("roommate");	   
-	    
+			    Boolean roommate = re.getBoolean("roommate");
+				String gender = re.getString("gender");
+			    String avatar = re.getString("avatar");
+			    
+			    // extract other user properties as needed
+			    
 
-			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate);
-
+			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar);
+			    // set other user properties as needed
 
 			    return user;
 			} else {

@@ -70,18 +70,14 @@ export class SigninComponent implements OnInit {
           this.user.room=res.room;
           this.user.roommate=res.roommate;
           this.user.skills=res.skills;
-  
+          this.user.gender=res.gender;
+          this.user.avatar=res.avatar;
           console.log(this.user);
-          // this.loginuserservice.setUser(this.user);
           alert("Successfully logged in as " + this.user.name);
-        
-          
           const userJson = JSON.stringify(this.user);
           localStorage.setItem('currentUser', userJson);
-  
-          const userr = localStorage.getItem("currentUser"); // retrieve JSON string from localStorage
+          const userr = localStorage.getItem("currentUser");
           const user = userr ? JSON.parse(userr) : {}
-          
           this.loginuserservice.setUser(user);
           console.log(user.id);
           this.router.navigate(["/profile"]);
@@ -92,7 +88,5 @@ export class SigninComponent implements OnInit {
       }
       )
     }
-
-    
   }
 }

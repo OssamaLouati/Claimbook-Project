@@ -42,7 +42,7 @@ public class Student {
 
 
 	public Student(Integer id, String email, String password, String name, String bio, String niveau, String filiere,
-			String skills, int room, int pavillon, boolean roommate) {
+			String skills, int room, int pavillon, boolean roommate, String avatar, String gender) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -55,6 +55,8 @@ public class Student {
 		this.room = room;
 		this.pavillon = pavillon;
 		this.roommate = roommate;
+		this.avatar = avatar;
+		this.gender = gender;
 	}
 
 

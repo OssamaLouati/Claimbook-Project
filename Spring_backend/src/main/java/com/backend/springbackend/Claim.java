@@ -25,8 +25,7 @@ public class Claim{
 	public int room;
 	public int pavillon;
 	
-	public Claim(int id, int student_id, String type, String description, Timestamp dateCreated, String state,
-			String picture_url, int room, int pavillon) {
+	public Claim(int id, int student_id, String type, String description, Timestamp dateCreated, String state, String picture_url, int room, int pavillon) {
 		super();
 		this.id = id;
 		this.student_id = student_id;

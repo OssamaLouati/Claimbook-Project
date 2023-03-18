@@ -1,0 +1,24 @@
+<div class="question-form container  p-6">
+    <label for="prompt">Ask a question:</label>
+    <input type="text" id="prompt" [(ngModel)]="prompt" name="prompt">
+  
+    <button class="btn1 m-6" (click)="onSubmit()">Submit</button>
+    <div class="spinner" *ngIf="loading">
+        <div></div>   
+        <div></div>    
+        <div></div>    
+        <div></div>    
+        <div></div>    
+        <div></div>    
+        <div></div>    
+        <div></div>    
+        <div></div>    
+        <div></div>    
+      </div>
+  
+    <div *ngIf="response" class="response">
+      <p>Answer:</p>
+      <p>{{ response }}</p>
+    </div>
+  </div>
+  

@@ -4,21 +4,27 @@
             <h2 class="titre">My Profile</h2>  
              
         </div>
-    <div class="container m-8">
-        <div class="row">
+    <div class="container m-8 ">
+        
             <div class="about-text padd-15">
                 <h3>I'm {{user.name}} <span>a Software engineering Student at INPT,</span></h3>
                 <p>{{user.bio}}</p>
                 
                 <button class="btn1 mb-6" (click)="openModal()">Edit Profile</button>
-    </div>
-        </div>
-         <div class="row">
-            <div class="section-image padd-15">
-                <img src="../../../assets/images/me.jpg" alt="">  
+
             </div>
-         </div>
+       
+         
+            <div class="section-image padd-15">
+                <img [src]="imageUrl" type="image" class="w-full">
+            </div>
+         
     </div>
+    <div class="info-item alert alert-warning flex justify-evenly items-center " *ngIf="!user.roommate">
+        <img class="w-60" src="../../../assets/images/roommate.png" alt="">
+        <p class=" text-2xl font-bold">Would you like some help finding a roommate?</p>
+        <button class="btn1 mb-6" (click)="openModal2()">Find Roommate</button>
+      </div>
         <div>
             <div class="row">
                 <div class="about-content padd-15">
@@ -51,34 +57,17 @@
                                
                                 <div class="info-item padd-15">
                                     <p>
-                                        Roommate: <span>Available</span>
+                                        Roommate: <span>{{user.roommate}}</span>
                                     </p>
                                 </div>
                               </div>
                               <h3 class="mt-6">My skills</h3>
-                            <div class="skills padd-15">
+                            <div class="skills padd-15" *ngFor="let skill of skills">
 
                                 <div class="skill">
-                                    <h2 class="title">HTML</h2>
+                                    <h2 class="title">{{skill}}</h2>
                                 </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">Css </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
-                                <div class="skill">
-                                    <h2 class="title">javascript </h2>
-                                </div>
+                               
                             </div>
                         </div>
                 </div>

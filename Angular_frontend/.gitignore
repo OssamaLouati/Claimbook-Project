@@ -8,6 +8,7 @@
 
 # Node
 /node_modules
+/site-packages
 npm-debug.log
 yarn-error.log
 

@@ -14,9 +14,9 @@ public class DBUtil {
 		}
 		else {
 			String driver = "com.mysql.cj.jdbc.Driver";
-			String url = "jdbc:mysql://localhost:3306/backend?useSSL=false";
+			String url = "jdbc:mysql://localhost:3305/backend?useSSL=false";
 			String user = "root";
-			String password = "";
+			String password = "rootroot";
 			try {
 				Class.forName(driver);
 				connection = DriverManager.getConnection(url , user , password);
