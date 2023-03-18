@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { EditclaimComponent } from 'src/app/component/editclaim/editclaim.component';
+import { DeleteclaimComponent } from 'src/app/component/deleteclaim/deleteclaim.component';
 
 @Component({
   selector: 'app-table',
@@ -41,6 +42,7 @@ export class ClaimListComponent{
 	@ViewChildren(NgbdSortableHeader)
   	headers!: QueryList<NgbdSortableHeader>;
 	modalRef: MdbModalRef<EditclaimComponent> | null = null;
+	modallRef: MdbModalRef<DeleteclaimComponent> | null = null;
 	claims: Claim[] = [];
 
 	constructor(private http: HttpClient,private sanitizer: DomSanitizer, private modalService: MdbModalService ) { //public service: ClaimService
@@ -59,6 +61,9 @@ export class ClaimListComponent{
 
 	openModal(claim_id: number, description: string, type: string ) {
 		this.modalRef = this.modalService.open(EditclaimComponent, {data: {claim_id, description, type}});
+	}
+	openModall(claim_id: number) {
+		this.modalRef = this.modalService.open(DeleteclaimComponent, {data: {claim_id}});
 	}
 
 	getStudentClaims(): void {

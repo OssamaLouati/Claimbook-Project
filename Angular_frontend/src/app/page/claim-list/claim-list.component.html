@@ -42,7 +42,7 @@
                     <td><a href="{{ claim.picture_url }}" target="_blank">See the picture</a></td>
                     <td class="buttons">
                         <button (click)="openModal(claim.id, claim.description, claim.type)"><a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a></button>
-                        <button><a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></button>
+                        <button (click)="openModall(claim.id)"><a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></button>
                     </td>    
                 </tr>
             </tbody>
