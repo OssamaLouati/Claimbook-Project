@@ -64,6 +64,12 @@ public class ClaimController {
       return Arrays.asList(claimArray);
   }
   
+  @CrossOrigin(origins = "*")
+  @GetMapping("/allclaims")
+  public List<Claim> getAllClaims() throws SQLException {
+      Claim[] claimArray = ClaimService.getTechnicianClaims();
+      return Arrays.asList(claimArray);
+  }
   
   @CrossOrigin(origins = "*")
   @PutMapping("/claim")

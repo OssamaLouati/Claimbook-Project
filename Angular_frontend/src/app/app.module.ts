@@ -35,6 +35,9 @@ import { SuccessupdateclaimComponent } from './component/successupdateclaim/succ
 import { DeleteclaimComponent } from './component/deleteclaim/deleteclaim.component';
 import { RecommendationComponent } from './component/recommendation/recommendation.component';
 import { SuggestsolutionComponent } from './page/suggestsolution/suggestsolution.component';
+import { ClaimListTechComponent } from './page/claim-list-tech/claim-list-tech.component';
+import { FinishClaimComponent } from './component/finish-claim/finish-claim.component';
+import { RejectClaimComponent } from './component/reject-claim/reject-claim.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
@@ -42,6 +45,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: SigninComponent },
   { path: 'claim', component: ClaimComponent },
+  { path: 'claims_tech', component: ClaimListTechComponent},
   { path: 'success', component: SuccessComponent },
   { path: 'suggestsolution', component: SuggestsolutionComponent },
 
@@ -68,6 +72,9 @@ const routes: Routes = [
     DeleteclaimComponent,
     RecommendationComponent,
     SuggestsolutionComponent,
+    ClaimListTechComponent,
+    FinishClaimComponent,
+    RejectClaimComponent,
 
     
   ],

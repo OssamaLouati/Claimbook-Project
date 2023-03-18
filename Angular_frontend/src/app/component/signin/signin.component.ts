@@ -47,7 +47,7 @@ export class SigninComponent implements OnInit {
           
           this.loginuserservice.setTechnician(this.technician);
           console.log(this.technician.id);
-          // this.router.navigate(["/profile"]);
+          this.router.navigate(["/claims_tech"]);
           alert("Technician Successfully logged in as " + this.technician.name);
         
         }else{

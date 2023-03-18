@@ -50,7 +50,7 @@ export class ClaimListComponent{
 		//  this.total$ = service.total$;
 	}
 	
-	 ngOnInit(): void {
+	ngOnInit(): void {
 		this.getStudentClaims();
 		
 	}

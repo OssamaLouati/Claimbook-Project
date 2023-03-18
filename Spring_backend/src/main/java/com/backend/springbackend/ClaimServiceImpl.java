@@ -136,6 +136,39 @@ public class ClaimServiceImpl implements ClaimService {
 		
 		return flag;
 	}
+
+	@Override
+	public Claim[] getTechnicianClaims() throws SQLException {
+		
+		ArrayList<Claim> claimsList = new ArrayList<>();
+		
+		PreparedStatement statement = connection.prepareStatement("SELECT * FROM claims");
+        
+        ResultSet resultSet = statement.executeQuery();
+        
+        while (resultSet.next()) {
+            int claimId = resultSet.getInt("id");
+            int studentId = resultSet.getInt("student_id");
+            String type = resultSet.getString("type");
+            String description = resultSet.getString("description");
+            Timestamp dateCreated = resultSet.getTimestamp("dateCreated");
+            String state = resultSet.getString("state");
+            String picture_url = resultSet.getString("picture_url");
+            int room = resultSet.getInt("room");
+            int pavillon = resultSet.getInt("pavillon");
+
+            Claim claim = new Claim(claimId, studentId, type, description,dateCreated, state, picture_url, room, pavillon );
+            
+            claimsList.add(claim);
+        }
+        Claim[] claimsArray = new Claim[claimsList.size()];
+        claimsList.toArray(claimsArray);
+
+        resultSet.close();
+        statement.close();
+
+        return claimsArray;
+	}
 	
 	
 
