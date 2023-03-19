@@ -1,20 +1,125 @@
 .nav1{
+    width: var(--menu-width);
     display: flex;
-    align-items: center;
-    justify-items: center;
     justify-content: space-between;
-    margin-top: 8px;
-    margin-bottom: 30px;
-    
-    
+    position: relative;
+    z-index: 2;
+    margin: 0px auto;
+    flex-wrap: wrap;
+    top: 1em;
     
 }
+
+.line {
+    width: 100%;
+  }
+
+
 img{
     width: 150px;
+    margin-left: 30px;
     justify-self: flex-start;
    
 }
 
+.alllinks{
+    display: flex;
+    position: relative;
+    top: 10px;
+    padding: 1em 1.5em;
+    gap: 70px;
+    
+}
+
+.onelink {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: #a37855;
+    transition: opacity 0.3s ease-in-out;
+}
+.onelink:hover {
+    opacity: 0.6;
+    color: #debfa6;
+}
+
+.menu_btn{
+    border: #C7756F;
+    background: #C7756F;
+    padding: 15px ;
+    position: relative;
+    bottom: 11px;
+    box-shadow: 0px 4px 0px rgba(189, 137, 60, 0.25);
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+    
+    
+
+
+
+
+
+.profile{
+    width: 50px;
+    position: relative;
+    bottom: 20px;
+    margin-right: 20px;
+}
+
+
+.toggle-menu {
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    z-index:1;
+    width: 130px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+}
+  
+  .toggle-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .toggle-menu li {
+    margin-top: 7px;
+    padding: 6px 16px;
+    font-size: 16px;
+    color: #333;
+  }
+  .toggle-menu li:last-child {
+    border-bottom: none;
+    margin-top: 0px;
+  }
+  
+  .toggle-menu a {
+    color: #333;
+    text-decoration: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .toggle-menu a:hover {
+    opacity: 0.6;
+    color: #787878;
+  }
 
 
 

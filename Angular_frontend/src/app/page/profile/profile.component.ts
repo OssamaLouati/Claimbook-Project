@@ -21,6 +21,7 @@ export class ProfileComponent {
   recommended_r!: string[];
   roommate = false;
   imageUrl='assets/images/photo.webp';
+
   constructor(private modalService: MdbModalService, private loginuserservice: LoginuserService, private cdr: ChangeDetectorRef, private recommmendationService: RecommendationService) {}
 
   openModal() {
@@ -30,17 +31,17 @@ export class ProfileComponent {
     this.modalRef = this.modalService.open(RecommendationComponent)
   }
 
+  
+ 
   ngOnInit(): void {
     const user = localStorage.getItem("currentUser")
     if (user) {
       this.user$ = JSON.parse(user);  
       if(this.user$.roommate==false){
-        
         this.recommended_r=this.recommmendationService.getRecommendations(this.user$.name);
-        console.log(this.recommended_r); 
-        
+        console.log(this.recommended_r);
       }
-     
+      
 
       
       this.cdr.detectChanges(); // force change detection to update the view

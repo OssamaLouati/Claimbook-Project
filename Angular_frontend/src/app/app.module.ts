@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
   { path: 'claims', component: ClaimListComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profil', component: ProfileComponent },
   { path: 'login', component: SigninComponent },
   { path: 'claim', component: ClaimComponent },
   { path: 'claims_tech', component: ClaimListTechComponent},

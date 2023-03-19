@@ -1,13 +1,29 @@
- <div class="nav1 ">
-    <img class=" h-[40%] mr-[10px] lg:mr-60" routerLink="/"  src="../../../assets/images/logo.png" alt="fast solve">
-    <div class="hidden lg:flex ">
-        <a routerLink="/claims" class="link px-12" href="#" ><fa-icon [icon]="faBullhorn"></fa-icon>Claims</a>
+<div class="nav1 ">
+  <img class=" h-[40%] mr-[10px] lg:mr-60" routerLink="/"  src="../../../assets/images/logo.png" alt="fast solve">
+  <div class="hidden lg:flex alllinks">
+    <a  class="onelink " href="#services" >Services</a>
+    <a  class="onelink " href="#testimonials" >Testimonials</a>
+    <a  class="onelink " href="#contact" >Contact Us</a>
+    
+    <button routerLink="/login" *ngIf="!isAuth" class="menu_btn">sign in</button>
+    
+    <div class="profile" *ngIf="isAuth" (click)="toggleMenu()">
+      <img  src="../../../assets/images/profile.png" alt="fast solve">
     </div>
-    <button routerLink="/login" class="btn1">sign in</button>
-    <button routerLink="/login" (click)="logout()" class="btn1">sign out</button>
-    <img class="profile" routerLink="/"  src="../../../assets/images/profile.png" alt="fast solve">
-
-    <div class="md:block lg:hidden">
+    
+    <div class="toggle-menu" *ngIf="isOpen">
+      <ul>
+        <li><a href="/profil" >profile</a></li>
+        <li><a href="/login" (click)="logout()">logout</a></li>
+      </ul>
+    </div>
+  
+  </div>
+</div>
+<div class="line"></div>
+    
+    <!-- <button routerLink="/login" (click)="logout()" class="btn1">sign out</button> -->
+    <!-- <div class="md:block lg:hidden">
       <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
       <div [ngbCollapse]="isMenuCollapsed" class="navbar-collapse">
       <ul class="navbar-nav">
@@ -16,8 +32,7 @@
         </li>
       </ul>
     </div>
-  </div>
-</div>
+  </div> -->
 
 
 

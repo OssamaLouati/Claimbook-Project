@@ -80,7 +80,7 @@ export class SigninComponent implements OnInit {
           const user = userr ? JSON.parse(userr) : {}
           this.loginuserservice.setUser(user);
           console.log(user.id);
-          this.router.navigate(["/profile"]);
+          this.router.navigate(["/profil"]);
         
         }else{
           alert("invalid email/password");
