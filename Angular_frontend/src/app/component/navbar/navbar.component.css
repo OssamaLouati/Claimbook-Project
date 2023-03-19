@@ -2,15 +2,15 @@
     display: flex;
     align-items: center;
     justify-items: center;
-    justify-content: space-around;
-    margin-top: 30px;
+    justify-content: space-between;
+    margin-top: 8px;
     margin-bottom: 30px;
     
     
     
 }
 img{
-    width: 200px;
+    width: 150px;
     justify-self: flex-start;
    
 }

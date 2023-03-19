@@ -51,7 +51,7 @@ export class ClaimListTechComponent {
 	 		}
 	 	  );
 	 	} else {
-	 	  console.log('student_id not found in localStorage');
+	 	  console.log('tech not found in localStorage');
 	 	}
   	}
 }

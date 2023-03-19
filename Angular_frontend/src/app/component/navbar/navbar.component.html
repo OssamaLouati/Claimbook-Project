@@ -1,26 +1,22 @@
  <div class="nav1 ">
-    <img class="mr-[12px] lg:mr-48" routerLink="/"  src="../../../assets/images/logo.png" alt="fast solve">
+    <img class=" h-[40%] mr-[10px] lg:mr-60" routerLink="/"  src="../../../assets/images/logo.png" alt="fast solve">
     <div class="hidden lg:flex ">
-
-        
         <a routerLink="/claims" class="link px-12" href="#" ><fa-icon [icon]="faBullhorn"></fa-icon>Claims</a>
     </div>
-    <button routerLink="/login" (click)="showSignInCardToggle()" class="btn1">sign in</button>
+    <button routerLink="/login" class="btn1">sign in</button>
     <button routerLink="/login" (click)="logout()" class="btn1">sign out</button>
+    <img class="profile" routerLink="/"  src="../../../assets/images/profile.png" alt="fast solve">
 
     <div class="md:block lg:hidden">
-
-        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
-
-<div [ngbCollapse]="isMenuCollapsed" class="navbar-collapse">
-  <ul class="navbar-nav">
-    <li class="nav-item" routerLink="/claims" routerLinkActive="active" (click)="isMenuCollapsed = true">
-      <a class="nav-link" href="#">Claims</a>
-    </li>
-  </ul>
-</div>
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+      <div [ngbCollapse]="isMenuCollapsed" class="navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLink="/claims" routerLinkActive="active" (click)="isMenuCollapsed = true">
+          <a class="nav-link" href="#">Claims</a>
+        </li>
+      </ul>
     </div>
-
+  </div>
 </div>
 
 
