@@ -21,11 +21,11 @@
         <table class="table table-striped">
             <thead>
                 <tr> 
-                    <th scope="col">Claim ID</th>
+                    <th scope="col">ID</th>
                     <th scope="col">romm</th>
                     <th scope="col">block</th>
                     <th scope="col">Claim description</th>
-                    <th scope="col">Claim  type</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Claim state</th>
                     <th scope="col">picture</th>
                     <th scope="col">Time</th>
@@ -41,10 +41,14 @@
                     <td>{{ claim.state }}</td>
                     <td><a href="{{ claim.picture_url }}" target="_blank">Show</a></td>
                     <td>{{ claim.dateCreated }}</td>
-                    <td class="buttons">
+                    <!-- <td class="buttons">
                         <button (click)="openModal(claim.id)"><a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a></button>
                         <button (click)="openModall(claim.id)"><a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a></button>
-                    </td>    
+                    </td>  -->
+                    <td class="buttons">
+                        <button (click)="openModal(claim.id)"><a style="color: green;" class="done" title="complete" data-toggle="tooltip"><i class="material-icons">&#xE876;</i></a></button>
+                        <button (click)="openModall(claim.id)"><a style="color: red;" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5CD;</i></a></button>
+                    </td>  
                 </tr>
             </tbody>
         </table>

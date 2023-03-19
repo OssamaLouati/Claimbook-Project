@@ -175,7 +175,7 @@ public class ClaimServiceImpl implements ClaimService {
 		int rowAffected = 0;
 	    try {
 	    	PreparedStatement statement = connection.prepareStatement("UPDATE claims SET state=?, interfering_tech=? WHERE id=?");
-	    	statement.setString(1, "done by technician N° "+interfering_tech);
+	    	statement.setString(1, "Done by technician N° "+interfering_tech);
 	        statement.setInt(2, interfering_tech);
 	        statement.setInt(3, id);
 	        statement.executeUpdate();
