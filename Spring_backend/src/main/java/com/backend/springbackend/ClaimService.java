@@ -12,5 +12,6 @@ public interface ClaimService {
 	public int updateClaim(int id, String type, String description, MultipartFile picure, int room, int pavillon) throws SQLException;
 	public int deleteClaim(int id) throws SQLException;
 	public Claim[] getTechnicianClaims() throws SQLException;
+	public int completeClaim(int id, int interfering_tech) throws SQLException;
 
 }

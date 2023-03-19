@@ -88,6 +88,22 @@ public class ClaimController {
   }
   
   @CrossOrigin(origins = "*")
+  @PutMapping("/finish_claim")
+  public ResponseEntity<Claim> finishStudentClaim(@RequestParam("id") int id, @RequestParam("interfering_tech") int interfering_tech	) throws SQLException {
+	  
+	  try {
+			int flag = ClaimService.completeClaim(id, interfering_tech);
+			if (flag ==1) {
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+	  
+  }
+  
+  @CrossOrigin(origins = "*")
   @DeleteMapping("/claim")
   public ResponseEntity<String> deleteStudentClaim(@RequestParam("id") int claim_id) {
       
