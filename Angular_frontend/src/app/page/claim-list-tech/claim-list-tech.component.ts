@@ -39,6 +39,7 @@ export class ClaimListTechComponent {
   	getAllClaims(): void {
     	const stored_technician = localStorage.getItem("currentUser"); 
    		const technician = stored_technician ? JSON.parse(stored_technician) : {}
+		console.log(technician.id);
 	 	if (technician.id) {
 	 	  const url = `http://localhost:8082/allclaims`;
 	 	  this.http.get<Claim[]>(url).subscribe(
