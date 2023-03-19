@@ -19,7 +19,8 @@ export class RejectClaimComponent {
     const stored_user = localStorage.getItem("currentUser"); 
     const user = stored_user ? JSON.parse(stored_user) : {}
     formData.append('id', this.claim_id.toString())
-    this.http.put("http://localhost:8082/finish_claim",formData).subscribe(
+    formData.append('interfering_tech	', user.id)
+    this.http.put("http://localhost:8082/reject_claim",formData).subscribe(
       (response: any) => {
         // handle success
       },

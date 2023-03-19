@@ -13,5 +13,6 @@ public interface ClaimService {
 	public int deleteClaim(int id) throws SQLException;
 	public Claim[] getTechnicianClaims() throws SQLException;
 	public int completeClaim(int id, int interfering_tech) throws SQLException;
+	public int rejectClaim(int id, int interfering_tech) throws SQLException;
 
 }

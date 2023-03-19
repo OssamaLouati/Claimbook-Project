@@ -39,7 +39,7 @@
                     <td><textarea readonly>{{ claim.description }}</textarea></td>
                     <td>{{ claim.type }}</td>
                     <td>{{ claim.state }}</td>
-                    <td><a href="{{ claim.picture_url }}" target="_blank">See the picture</a></td>
+                    <td><a href="{{ claim.picture_url }}" target="_blank">Show</a></td>
                     <td>{{ claim.dateCreated }}</td>
                     <td class="buttons">
                         <button (click)="openModal(claim.id)"><a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a></button>

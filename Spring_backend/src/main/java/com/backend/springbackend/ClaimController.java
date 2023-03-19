@@ -100,7 +100,21 @@ public class ClaimController {
 			e.printStackTrace();
 		}
 	  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+  }
+  
+  @CrossOrigin(origins = "*")
+  @PutMapping("/reject_claim")
+  public ResponseEntity<Claim> rejectStudentClaim(@RequestParam("id") int id, @RequestParam("interfering_tech") int interfering_tech	) throws SQLException {
 	  
+	  try {
+			int flag = ClaimService.rejectClaim(id, interfering_tech);
+			if (flag ==1) {
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	  return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
   }
   
   @CrossOrigin(origins = "*")

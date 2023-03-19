@@ -191,6 +191,28 @@ public class ClaimServiceImpl implements ClaimService {
 		
 		return rowAffected;
 	}
+
+	@Override
+	public int rejectClaim(int id, int interfering_tech) throws SQLException {
+		int rowAffected = 0;
+	    try {
+	    	PreparedStatement statement = connection.prepareStatement("UPDATE claims SET state=?, interfering_tech=? WHERE id=?");
+	    	statement.setString(1, "Rejected by technician N° "+interfering_tech);
+	        statement.setInt(2, interfering_tech);
+	        statement.setInt(3, id);
+	        statement.executeUpdate();
+	        statement.close();
+	    	
+	    } catch(SQLException e){
+	    	flag =0;
+			System.out.println(e.getMessage());
+	    	
+	    }
+		
+		
+		
+		return rowAffected;
+	}
 	
 	
 
