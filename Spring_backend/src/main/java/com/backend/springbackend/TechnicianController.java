@@ -34,6 +34,7 @@ public class TechnicianController {
 		      try {
 		    	  technician = technicianservice.findTechnician(email, password);
 				System.out.println(technician.getName());
+				System.out.println(technician.getId());
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

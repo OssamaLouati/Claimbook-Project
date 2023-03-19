@@ -67,6 +67,7 @@ public class ClaimController {
   @CrossOrigin(origins = "*")
   @GetMapping("/allclaims")
   public List<Claim> getAllClaims() throws SQLException {
+	  System.out.println("heyooo");
       Claim[] claimArray = ClaimService.getTechnicianClaims();
       return Arrays.asList(claimArray);
   }
