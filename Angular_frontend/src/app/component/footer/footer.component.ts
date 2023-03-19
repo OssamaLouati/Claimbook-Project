@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,7 @@ import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
 export class FooterComponent {
   faHome = faHome;
   faBullhorn=faBullhorn;
+  @ViewChild('contactForm') contactForm: any;
   constructor(private http: HttpClient){
   
   }
@@ -25,8 +26,11 @@ export class FooterComponent {
         { 'headers': headers }).subscribe(
           response => {
             console.log(response);
+            alert("your message have been sent to use!!");
+            contactForm.reset();
           }
         );
+        
     }
   }
 
