@@ -1,0 +1,20 @@
+<div class="container  ">
+    <h3>We suggest you the best roommates for you</h3>
+    <div class="flex flex-col p-6">
+
+        <div class="card " style="width: 18rem; " >
+           
+        
+            <img class="card-img-top" src="{{userguest.avatar}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{userguest.name}}</h5>
+              <p class="card-text">{{userguest.bio}}</p>
+              <div class="flex justify-between ">
+
+                <button href="#" (click)="acceptroommate()" class="btn btn-success mr-6">Accept as roommate</button>
+                <button href="#" (click)="rejectroommate()" class="btn btn-danger">Reject roommate</button>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

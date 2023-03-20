@@ -3,6 +3,7 @@ package com.backend.springbackend;
 
 
 import java.sql.SQLException;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -57,6 +58,113 @@ public class StudentController {
 	    }
 	    return ResponseEntity.ok().build();
 	 }
+	@CrossOrigin(origins = "*")
+	@GetMapping("/user/sendinvitation/{userId}/{roommateName}")
+	  public ResponseEntity<Integer> sendInvitation(@PathVariable("userId") int userId , @PathVariable("roommateName") String roommateName, HttpServletRequest request) throws SQLException {
+	    
+	   
+	    int flag = userservice.endinvitationtouser(roommateName, userId);
+	    
+	    System.out.println(flag);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(flag);
+	  }
 	
-
+	@CrossOrigin(origins = "*")
+	@GetMapping("/user/sendinvitationtoroommate/{userId}")
+	  public ResponseEntity<Student> sendInvitationtouser(@PathVariable("userId") int userId , HttpServletRequest request) throws SQLException {
+	    
+	   
+	    Student user = userservice.finduserbyid(userId);
+	    
+	    System.out.println(user);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(user);
+	  }
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/user/acceptinvitation/{userguestId}/{currentuserId}")
+	  public ResponseEntity<Student> acceptInvitationtouser(@PathVariable("userguestId") int userguestId , @PathVariable("currentuserId") int currentuserId , HttpServletRequest request) throws SQLException {
+	    
+		int flag=0;
+	    Student currentuser = userservice.finduserbyid(currentuserId);
+	    Student userguest = userservice.finduserbyid(userguestId);
+	    if(currentuser!=null && userguest!=null) {
+	    	int flag1=userservice.changeroommate(currentuserId);
+	    	int flag2=userservice.changeroommate(userguestId);
+	    	int changeinvitation = userservice.changeinvitation(currentuserId);
+	    	int sendacceptation = userservice.sendaccept(userguestId,currentuserId);
+	    	flag=1;
+	    }
+	    
+	    System.out.println(flag);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(currentuser);
+	  }
+	@CrossOrigin(origins = "*")
+	@GetMapping("/user/rejectinvitation/{userguestId}/{currentuserId}")
+	  public ResponseEntity<Student> rejectInvitationtouser(@PathVariable("userguestId") int userguestId , @PathVariable("currentuserId") int currentuserId , HttpServletRequest request) throws SQLException {
+	    
+		int flag=0;
+	    Student currentuser = userservice.finduserbyid(currentuserId);
+	    Student userguest = userservice.finduserbyid(userguestId);
+	    if(currentuser!=null && userguest!=null) {
+	    	int changeinvitation = userservice.changeinvitation(currentuserId);
+	    	int sendreject = userservice.sendreject(userguestId,currentuserId);
+	    	flag=1;
+	    }
+	    
+	    System.out.println(flag);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(currentuser);
+	  }
+	@CrossOrigin(origins = "*")
+	@GetMapping("/user/sendok/{currentuserId}")
+	  public ResponseEntity<Integer> sendok( @PathVariable("currentuserId") int currentuserId , HttpServletRequest request) throws SQLException {
+	    
+		int flag=0;
+	    Student currentuser = userservice.finduserbyid(currentuserId);
+	  
+	    if(currentuser!=null ) {
+	    	
+	    	int changeinvitationresponse = userservice.changeinvitationresponse(currentuserId);
+	    	flag=1;
+	    }
+	    
+	    System.out.println(currentuserId);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(currentuserId);
+	  }
+	@CrossOrigin(origins = "*")
+	@GetMapping("/user/sendacceptinvitation/{userguestId}/{currentuserId}")
+	  public ResponseEntity<Integer> sendacceptInvitationtouser(@PathVariable("userguestId") String userguest , @PathVariable("currentuserId") int currentuserId , HttpServletRequest request) throws SQLException {
+	    
+		int flag=0;
+	    Student currentuser = userservice.finduserbyid(currentuserId);
+	  
+	    if(currentuser!=null && userguest!=null) {
+	    	
+	    	flag=1;
+	    }
+	    
+	    System.out.println(currentuserId);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(currentuserId);
+	  }
+	@CrossOrigin(origins = "*")
+	@GetMapping("/user/sendrejectinvitation/{userguestId}/{currentuserId}")
+	  public ResponseEntity<Integer> sendrejectInvitationtouser(@PathVariable("userguestId") String userguest , @PathVariable("currentuserId") int currentuserId , HttpServletRequest request) throws SQLException {
+	    
+		int flag=0;
+	    Student currentuser = userservice.finduserbyid(currentuserId);
+	    
+	    if(currentuser!=null && userguest!=null) {
+	    	
+	    	flag=1;
+	    }
+	    
+	    System.out.println(currentuserId);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(currentuserId);
+	  }
 }

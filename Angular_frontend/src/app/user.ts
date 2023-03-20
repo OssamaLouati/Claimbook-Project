@@ -12,4 +12,6 @@ export class User {
 	 roommate!: boolean;
 	 gender!: string;
 	 avatar!: string; 
+	 invitation!: number;
+	 invitationresponse!: number;
 }
