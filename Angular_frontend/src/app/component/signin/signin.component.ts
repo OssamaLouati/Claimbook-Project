@@ -21,11 +21,16 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {    
   }
 
+  togglePassword(button: HTMLButtonElement): void {
+    button.classList.toggle("showing");
+    const input = document.getElementById("password") as HTMLInputElement;
+    input.type = input.type === "password" ? "text" : "password";
+  }
+
   toggleLoginType() {
     this.isTechnicalExpert = !this.isTechnicalExpert;
   }
   
-
   userLogin(){
 
     if (this.isTechnicalExpert) {

@@ -54,7 +54,7 @@ export class NavbarComponent {
     this.loginuserservice.logout().subscribe(() => {
       this.loginuserservice.clearUser();
       localStorage.removeItem('currentUser');
-      this.router.navigate(["/login"]);
+      this.router.navigate(["/"]);
     });
   }
   

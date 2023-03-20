@@ -1,11 +1,15 @@
 <div class="nav1 ">
   <img class=" h-[40%] mr-[10px] lg:mr-60" routerLink="/"  src="../../../assets/images/logo.png" alt="fast solve">
   <div class="hidden lg:flex alllinks">
-    <a  class="onelink " href="#services" >Services</a>
-    <a  class="onelink " href="#testimonials" >Testimonials</a>
-    <a  class="onelink " href="#contact" >Contact Us</a>
+    <a  class="onelink " *ngIf="!isAuth" href="#services" >Services</a>
+    <a  class="onelink " *ngIf="!isAuth" href="#testimonials" >Testimonials</a>
+    <a  class="onelink " *ngIf="!isAuth" href="#contact" >Contact Us</a>
     
-    <button routerLink="/login" *ngIf="!isAuth" class="menu_btn">sign in</button>
+    <button routerLink="/ai" *ngIf="isAuth" class="glow-on-hover">Ask AI</button>
+    <button routerLink="/claims" *ngIf="isAuth" class="menu_btn00">Your claims</button>
+    <button routerLink="/addclaim" *ngIf="isAuth" class="menu_btn00">Add claim</button>
+
+    <button routerLink="/login" *ngIf="!isAuth" class="menu_btn">Sign in</button>
     
     <div class="profile" *ngIf="isAuth" (click)="toggleMenu()">
       <img  src="../../../assets/images/profile.png" alt="fast solve">
@@ -14,7 +18,7 @@
     <div class="toggle-menu" *ngIf="isOpen">
       <ul>
         <li><a href="/profil" >profile</a></li>
-        <li><a href="/login" (click)="logout()">logout</a></li>
+        <li><a href="/" (click)="logout()">logout</a></li>
       </ul>
     </div>
   

@@ -52,11 +52,12 @@
           <button
             class="toggle"
             type="button"
-            onclick="togglePassword(this)"
+            #passwordButton (click)="togglePassword(passwordButton)"
           ></button>
         </div>
-        <button class="control" type="submit" >LOGIN</button>
 
+        <button class="control" type="submit" >LOGIN</button>
+        
         <button class="control22" type="button" (click)="toggleLoginType()">
             {{ isTechnicalExpert ? 'Switch to student' : 'Switch to Technical Expert' }}
         </button>

@@ -19,7 +19,6 @@ import {DecimalPipe} from '@angular/common';
 import { ProfileComponent } from './page/profile/profile.component';
 import { SigninComponent } from './component/signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ClaimComponent } from './page/claim/claim.component';
 import {MatIconModule} from '@angular/material/icon';
 import { EditprofileComponent } from './page/editprofile/editprofile.component';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
@@ -44,10 +43,9 @@ const routes: Routes = [
   { path: 'claims', component: ClaimListComponent },
   { path: 'profil', component: ProfileComponent },
   { path: 'login', component: SigninComponent },
-  { path: 'claim', component: ClaimComponent },
   { path: 'claims_tech', component: ClaimListTechComponent},
   { path: 'success', component: SuccessComponent },
-  { path: 'suggestsolution', component: SuggestsolutionComponent },
+  { path: 'ai', component: SuggestsolutionComponent },
 
 ];
 
@@ -62,7 +60,6 @@ const routes: Routes = [
     AddClaimComponent,
     NavbarComponent,
     SigninComponent,
-    ClaimComponent,
     EditprofileComponent,
     ProfileComponent,
     LogoutComponent,
