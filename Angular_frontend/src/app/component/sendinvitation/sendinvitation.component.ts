@@ -42,7 +42,6 @@ export class SendinvitationComponent {
       this.user$.roommate=true;
       this.user$.invitation=0;
       this.flag = 1;
-      // handle success
     
       const userJson = await localStorage.getItem('currentUser');
       const user = userJson ? JSON.parse(userJson) : {};

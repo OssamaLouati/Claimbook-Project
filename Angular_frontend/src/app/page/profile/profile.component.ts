@@ -25,6 +25,7 @@ export class ProfileComponent {
   roommateavatar!:string;
   roommatename!: string;
   roommatebio!: string;
+
   modalRef: MdbModalRef<EditprofileComponent> | null = null;
   faBell=faBell;
   public user$: any = {};
@@ -33,12 +34,13 @@ export class ProfileComponent {
   recommended_r!: string[];
   roommate = false;
   imageUrl='assets/images/photo.webp';
+
   flag = 0;
   roomname = "";
   accept = 0;
   reject = 0;
   
-  constructor(private modalService: MdbModalService,private cdr: ChangeDetectorRef, private loginuserservice: LoginuserService,  private recommmendationService: RecommendationService) {}
+  constructor(private modalService: MdbModalService, private loginuserservice: LoginuserService,  private recommmendationService: RecommendationService) {}
 
   openModal() {
     this.modalRef = this.modalService.open(EditprofileComponent)
@@ -46,24 +48,26 @@ export class ProfileComponent {
   openModal2() {
     this.modalRef = this.modalService.open(RecommendationComponent)
   }
-  openModal4() {
+
+  openModal3() {
     this.modalRef = this.modalService.open(SendinvitationComponent)
   }
 
   openModalforeachuser(){
+    console.log("function triggereed")
     if(this.userguest!=null && this.user$.invitation!=0){
-      
       this.modalRef = this.modalService.open(SendinvitationComponent)
     }
+
     if(this.user$.invitationresponse>0){
       this.recommmendationService.getRoommateDetail(Math.abs(this.user$.invitationresponse)).subscribe(
         userroommate => console.log(userroommate),
         err => console.log(err)
-      );
-      
+      );  
       console.log(this.userguest);
       this.modalRef = this.modalService.open(AcceptinvitationComponent)
     }
+
     if(this.user$.invitationresponse<0){
       console.log(this.user$.invitationresponse)
       console.log(Math.abs(this.user$.invitationresponse))
@@ -71,13 +75,14 @@ export class ProfileComponent {
         userroommate => console.log(userroommate),
         err => console.log(err)
       );
-       
+
       this.modalRef = this.modalService.open(RejectinvitationComponent)
-     
+
     }
   }
 
    ngOnInit() {
+    this.openModalforeachuser()
     this.flag = this.recommmendationService.getFlag();
     this.accept=this.recommmendationService.getAccept();
     console.log(this.accept);
@@ -101,11 +106,7 @@ export class ProfileComponent {
         console.log(this.recommended_r); 
         
       }
-     
 
-      
-       // force change detection to update the view
-      this.cdr.detectChanges(); 
       this.skills = this.user$.skills.replace(/\s+/g, " ").split(" ");
       let index = this.skills.indexOf("");
      

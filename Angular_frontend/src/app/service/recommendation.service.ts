@@ -22,8 +22,6 @@ export class RecommendationService {
     this.http.get<any>(`http://localhost:5000/recommend/${name}`).subscribe(
       res => {
         this.recommended_roommates = res.recommended;
-        
-        
       },
       err => console.log(err)
     );
@@ -32,18 +30,14 @@ export class RecommendationService {
   }
 
   public sendInvitation( currentUserId: number, roommateName: string): Observable<any> {
-    
-   return this.http.get<any>('http://localhost:8082/user/sendinvitation/'+currentUserId+'/'+roommateName); 
-   
- }
+    return this.http.get<any>('http://localhost:8082/user/sendinvitation/'+currentUserId+'/'+roommateName); 
+  }
 
   getRoommateDetails(roommateId: number)  {
     const url = `http://localhost:8082/user/sendinvitationtoroommate/${roommateId}`;
      this.http.get<any>(url).subscribe(
       res => {
         this.userguest = res;
-        
-        
       },
       err => console.log(err)
     );
@@ -69,29 +63,25 @@ export class RecommendationService {
 
   acceptInvitation(currentuserid:number ,invitationId: number): Observable<any>  {
     return this.http.get<any>(`http://localhost:8082/user/acceptinvitation/${invitationId}/${currentuserid}`);
-    
-  
   }
+
   rejectInvitation(currentuserid:number ,invitationId: number): Observable<any>  {
     return this.http.get<any>(`http://localhost:8082/user/rejectinvitation/${invitationId}/${currentuserid}`);
     
-  
   }
+
   sendacceptInvitation(currentuserid:number ,invitationId: string): Observable<any>  {
     return this.http.get<any>(`http://localhost:8082/user/sendacceptinvitation/${invitationId}/${currentuserid}`);
-    
-  
   }
+
   sendrejectInvitation(currentuserid:number ,invitationId: string): Observable<any>  {
     return this.http.get<any>(`http://localhost:8082/user/sendrejectinvitation/${invitationId}/${currentuserid}`);
-    
-  
   }
+
   sendok(currentuserid:number ): Observable<any>  {
     return this.http.get<any>(`http://localhost:8082/user/sendok/${currentuserid}`);
-    
-  
   }
+  
   setFlag(flag: number) {
     this.flag = flag;
   }

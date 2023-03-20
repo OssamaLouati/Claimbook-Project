@@ -77,6 +77,7 @@ public class StudentServiceImpl implements StudentService {
 			    return null;
 			}
 	}
+	
 	@Override
 	public int endinvitationtouser(String name , int id) throws SQLException {
 				 int flag=0;
