@@ -20,6 +20,7 @@ import { RejectinvitationComponent } from 'src/app/component/rejectinvitation/re
 })
 export class ProfileComponent {
   userguest!: User;
+  userroommate!: User;
   roommateid!:number;
   roommateavatar!:string;
   roommatename!: string;
@@ -55,16 +56,24 @@ export class ProfileComponent {
       this.modalRef = this.modalService.open(SendinvitationComponent)
     }
     if(this.user$.invitationresponse>0){
+      this.recommmendationService.getRoommateDetail(Math.abs(this.user$.invitationresponse)).subscribe(
+        userroommate => console.log(userroommate),
+        err => console.log(err)
+      );
       
+      console.log(this.userguest);
       this.modalRef = this.modalService.open(AcceptinvitationComponent)
     }
     if(this.user$.invitationresponse<0){
-      
-      this.user$=this.recommmendationService.getRoommateDetails(Math.abs(this.user$.invitationresponse));
-      console.log(this.user$);
-      
-
+      console.log(this.user$.invitationresponse)
+      console.log(Math.abs(this.user$.invitationresponse))
+      this.recommmendationService.getRoommateDetail(Math.abs(this.user$.invitationresponse)).subscribe(
+        userroommate => console.log(userroommate),
+        err => console.log(err)
+      );
+       
       this.modalRef = this.modalService.open(RejectinvitationComponent)
+     
     }
   }
 

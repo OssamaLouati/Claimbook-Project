@@ -43,6 +43,12 @@
         top: -65px;
         left: 5px;
       }
+      .button_submit{
+        background-color: #e94545;
+        padding: 10px;
+        color:#C8D0D8;
+        border: #e94545;
+      }
     </style>
     <body>
       <div class="card">
@@ -52,5 +58,7 @@
         <br>
         <h1>the invitation is rejected</h1> 
         <br>
+        <p> {{userroommate.name}}a reject the invitation</p>
+        <button class="button_submit" (click)="goToPage()">ok</button>
       </div>
     </body>

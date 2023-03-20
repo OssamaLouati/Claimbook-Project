@@ -10,11 +10,19 @@ import { User } from 'src/app/user';
   styleUrls: ['./acceptinvitation.component.css']
 })
 export class AcceptinvitationComponent {
-  constructor( public modalRef: MdbModalRef<AcceptinvitationComponent>) { }
+  userroommate: any;
+  constructor( private recommmendationService: RecommendationService ,public modalRef: MdbModalRef<AcceptinvitationComponent>) {
+   }
   goToPage() {
     
     this.modalRef.close();
-    location.reload();
+    
   }
+  ngOnInit() {
+    this.recommmendationService.userroommate$.subscribe(
+      userroommate => this.userroommate = userroommate
+    );
+  }
+
 
 }
