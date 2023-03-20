@@ -13,4 +13,5 @@ export class User {
 	 gender!: string;
 	 avatar!: string; 
 	 invitation!: number;
+	 invitationresponse!: number;
 }

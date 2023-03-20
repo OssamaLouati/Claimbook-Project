@@ -11,6 +11,9 @@ export class RecommendationService {
   public recommended_roommates!: any[];
   public userguest!: User;
   private flag: number = 0;
+  private accept: number = 0;
+  private reject: number = 0;
+  private roomename: string ="";
   constructor(private http: HttpClient) { }
 
   public getRecommendations(name: string) {
@@ -56,11 +59,42 @@ export class RecommendationService {
     
   
   }
+  sendacceptInvitation(currentuserid:number ,invitationId: string): Observable<any>  {
+    return this.http.get<any>(`http://localhost:8082/user/sendacceptinvitation/${invitationId}/${currentuserid}`);
+    
+  
+  }
+  sendrejectInvitation(currentuserid:number ,invitationId: string): Observable<any>  {
+    return this.http.get<any>(`http://localhost:8082/user/sendrejectinvitation/${invitationId}/${currentuserid}`);
+    
+  
+  }
   setFlag(flag: number) {
     this.flag = flag;
   }
 
   getFlag() {
     return this.flag;
+  }
+  setAccept(accept: number) {
+    this.accept = accept;
+  }
+
+  getAccept() {
+    return this.accept;
+  }
+  setReject(reject: number) {
+    this.reject = reject;
+  }
+
+  getReject() {
+    return this.reject;
+  }
+  setRoomname(roomename: string) {
+    this.roomename = roomename;
+  }
+
+  getRoomename() {
+    return this.roomename;
   }
 }

@@ -13,5 +13,7 @@ public interface StudentService {
 	int endinvitationtouser(String name, int id) throws SQLException;
 	int changeroommate(int userid);
 	int changeinvitation(int userid);
+	public int sendaccept(int userguestId, int currentuser);
+	public int sendreject(int userguestId, int currentuserId);
 
 }

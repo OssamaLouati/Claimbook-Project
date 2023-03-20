@@ -2,7 +2,7 @@
     <div class="row">
         <div class="section-title padd-15">
             <h2 class="titre">My Profile</h2> 
-            <fa-icon [class.bell-animation]="userguest" (click)="openModal4()" [icon]="faBell"></fa-icon> 
+            <fa-icon [class.bell-animation]="user$.invitation!==0 || user$.invitationresponse!==0" [class.bell-no-animation]="user$.invitation==0 && user$.invitationresponse==0" (click)="openModalforeachuser()" [icon]="faBell"></fa-icon> 
              
         </div>
     <div class="container m-8 ">

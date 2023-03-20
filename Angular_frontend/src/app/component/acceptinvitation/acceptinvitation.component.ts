@@ -14,6 +14,7 @@ export class AcceptinvitationComponent {
   goToPage() {
     
     this.modalRef.close();
+    location.reload();
   }
 
 }

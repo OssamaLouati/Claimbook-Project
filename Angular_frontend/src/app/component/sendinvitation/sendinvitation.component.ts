@@ -20,6 +20,8 @@ export class SendinvitationComponent {
   public user$: any = {};
   user:User = new User();
   flag = 0; 
+  accept= 0;
+  reject=0;
   
   constructor(private recommmendationService: RecommendationService , private http: HttpClient ,private modalService: MdbModalService , private loginuserService:LoginuserService ) {
     this.userguest=recommmendationService.userguest;
@@ -40,15 +42,18 @@ export class SendinvitationComponent {
       this.user$.roommate=true;
       this.flag = 1;
       // handle success
+      this.accept=this.userguest.id;
       const userJson = await localStorage.getItem('currentUser');
       const user = userJson ? JSON.parse(userJson) : {};
       await this.recommmendationService.acceptInvitation(user.id, this.userguest.id).toPromise();
       user.roommate = true;
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.loginuserService.setUser(user);
-      this.modalRef= this.modalService.open(AcceptinvitationComponent);
       this.recommmendationService.setFlag(this.flag);
-      
+      this.recommmendationService.setAccept(this.accept); 
+      console.log(this.recommmendationService.getAccept());
+      alert("invitation accepted ! now you and "+this.userguest.name+" have become a roommates");
+      location.reload();
       
        
     }, (error) => {
@@ -62,7 +67,10 @@ export class SendinvitationComponent {
     this.recommmendationService.rejectInvitation(this.user$.id, this.userguest.id).subscribe((response) => {
       // handle success
       console.log(response);
-      this.modalRef = this.modalService.open(RejectinvitationComponent);
+      
+      this.reject=this.userguest.id;
+      alert("invitation denied ! you reject "+this.userguest.name+" to become your roommate");
+      location.reload();
     }, (error) => {
       // handle error
       console.log(error);

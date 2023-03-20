@@ -65,10 +65,11 @@ public class StudentServiceImpl implements StudentService {
 				String gender = re.getString("gender");
 			    String avatar = re.getString("avatar");
 			    int invitation = re.getInt("invitation");
+			    int invitationresponse = re.getInt("invitationresponse");
 			    // extract other user properties as needed
 			    
 
-			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar, invitation);
+			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar, invitation , invitationresponse);
 			    // set other user properties as needed
 
 			    return user;
@@ -119,11 +120,11 @@ public class StudentServiceImpl implements StudentService {
 				String gender = re.getString("gender");
 			    String avatar = re.getString("avatar");
 			    int invitation = re.getInt("invitation");
-			    
+			    int invitationresponse = re.getInt("invitationresponse");
 			    // extract other user properties as needed
 			    
 
-			    Student user = new Student((int) id1, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar , invitation);
+			    Student user = new Student((int) id1, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar , invitation , invitationresponse);
 			    // set other user properties as needed
 
 			    return user;
@@ -179,7 +180,52 @@ public class StudentServiceImpl implements StudentService {
 		    }
 		 return flag;
 	}
-	
+	@Override
+	public int sendaccept(int useridg , int useridc) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET  invitationresponse=? WHERE id=?");
+		    	
+		    	statement.setInt(1, useridc);
+		    	statement.setInt(2, useridg);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
+	@Override
+	public int sendreject(int useridg , int useridc) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET  invitationresponse=? WHERE id=?");
+		    	
+		    	statement.setInt(1, -useridc);
+		    	statement.setInt(2, useridg);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
 	
 	
 	

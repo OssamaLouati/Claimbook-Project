@@ -9,6 +9,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/user';
 import { AcceptinvitationComponent } from 'src/app/component/acceptinvitation/acceptinvitation.component';
 import { SendinvitationComponent } from 'src/app/component/sendinvitation/sendinvitation.component';
+import { RejectinvitationComponent } from 'src/app/component/rejectinvitation/rejectinvitation.component';
 
 @Component({
   selector: 'app-profile',
@@ -32,6 +33,10 @@ export class ProfileComponent {
   roommate = false;
   imageUrl='assets/images/photo.webp';
   flag = 0;
+  roomname = "";
+  accept = 0;
+  reject = 0;
+  
   constructor(private modalService: MdbModalService, private loginuserservice: LoginuserService,  private recommmendationService: RecommendationService) {}
 
   openModal() {
@@ -44,14 +49,39 @@ export class ProfileComponent {
     this.modalRef = this.modalService.open(SendinvitationComponent)
   }
 
+  openModalforeachuser(){
+    if(this.userguest!=null && this.user$.invitation!=0){
+      
+      this.modalRef = this.modalService.open(SendinvitationComponent)
+    }
+    if(this.user$.invitationresponse>0){
+      
+      this.modalRef = this.modalService.open(AcceptinvitationComponent)
+    }
+    if(this.user$.invitationresponse<0){
+      
+      this.user$=this.recommmendationService.getRoommateDetails(Math.abs(this.user$.invitationresponse));
+      console.log(this.user$);
+      
+
+      this.modalRef = this.modalService.open(RejectinvitationComponent)
+    }
+  }
+
    ngOnInit() {
     this.flag = this.recommmendationService.getFlag();
+    this.accept=this.recommmendationService.getAccept();
+    console.log(this.accept);
+    this.reject=this.recommmendationService.getReject();
+    this.roomname = this.recommmendationService.getRoomename();
     console.log(this.flag);
     const user = localStorage.getItem("currentUser")
     if (user) {
       this.user$ =  JSON.parse(user);  
+      console.log(this.user$)
       if(this.flag==1){
         this.user$.roommate=true;
+        this.user$.invitation=0;
       }
       if(this.flag==1 && this.user$.roommate==false){
         this.user$.roommate=true;
@@ -81,6 +111,7 @@ export class ProfileComponent {
         
       }
      
+     
 
       
        // force change detection to update the view
@@ -92,6 +123,7 @@ export class ProfileComponent {
       }
     }
   }
+ 
  
 }
 

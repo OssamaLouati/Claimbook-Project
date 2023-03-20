@@ -110,4 +110,9 @@
   }
   
   
+.bell-no-animation {
+    color: rgb(5, 5, 5) !important;
+    cursor: none;
+  }
+  
   
