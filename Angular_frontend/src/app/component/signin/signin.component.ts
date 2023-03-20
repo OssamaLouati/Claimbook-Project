@@ -72,6 +72,7 @@ export class SigninComponent implements OnInit {
           this.user.skills=res.skills;
           this.user.gender=res.gender;
           this.user.avatar=res.avatar;
+          this.user.invitation=res.invitation;
           console.log(this.user);
           alert("Successfully logged in as " + this.user.name);
           const userJson = JSON.stringify(this.user);

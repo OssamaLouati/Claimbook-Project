@@ -1,7 +1,8 @@
 <div class="about section m-6  " id="about" *ngIf="user$ as user">
     <div class="row">
         <div class="section-title padd-15">
-            <h2 class="titre">My Profile</h2>  
+            <h2 class="titre">My Profile</h2> 
+            <fa-icon [class.bell-animation]="userguest" (click)="openModal4()" [icon]="faBell"></fa-icon> 
              
         </div>
     <div class="container m-8 ">
@@ -24,6 +25,9 @@
         <img class="w-60" src="../../../assets/images/roommate.png" alt="">
         <p class=" text-2xl font-bold">Would you like some help finding a roommate?</p>
         <button class="btn1 mb-6" (click)="openModal2()">Find Roommate</button>
+      </div>
+      <div class=" " *ngIf="user.roommate">
+        
       </div>
         <div>
             <div class="row">

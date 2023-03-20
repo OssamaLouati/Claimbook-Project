@@ -38,6 +38,10 @@ import { SuggestsolutionComponent } from './page/suggestsolution/suggestsolution
 import { ClaimListTechComponent } from './page/claim-list-tech/claim-list-tech.component';
 import { FinishClaimComponent } from './component/finish-claim/finish-claim.component';
 import { RejectClaimComponent } from './component/reject-claim/reject-claim.component';
+import { SendinvitationComponent } from './component/sendinvitation/sendinvitation.component';
+import { AcceptinvitationComponent } from './component/acceptinvitation/acceptinvitation.component';
+import { RejectinvitationComponent } from './component/rejectinvitation/rejectinvitation.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'addclaim', component: AddClaimComponent },
@@ -75,6 +79,9 @@ const routes: Routes = [
     ClaimListTechComponent,
     FinishClaimComponent,
     RejectClaimComponent,
+    SendinvitationComponent,
+    AcceptinvitationComponent,
+    RejectinvitationComponent,
 
     
   ],

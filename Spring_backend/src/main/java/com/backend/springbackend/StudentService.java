@@ -9,5 +9,9 @@ public interface StudentService {
 	
 	public int loginValidation(String email , String password);
 	public Student finduser(String email , String password) throws SQLException;
+	Student finduserbyid(int id) throws SQLException;
+	int endinvitationtouser(String name, int id) throws SQLException;
+	int changeroommate(int userid);
+	int changeinvitation(int userid);
 
 }

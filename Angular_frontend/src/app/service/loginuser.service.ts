@@ -42,5 +42,7 @@ export class LoginuserService {
   public clearUser() {
     this.userSubject.next(null);
   }
-  
+  updateUser(user: any) {
+    this.userSubject.next(user);
+  }
 }
