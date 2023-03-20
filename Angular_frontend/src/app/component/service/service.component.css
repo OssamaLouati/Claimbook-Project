@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
 
 .parent {
     display: grid;
@@ -78,4 +78,77 @@
         
         
         
-      }
+      } */
+      /* Style for the container */
+.wrapper{
+    background: url("../../../assets/images/service.png") no-repeat;
+    background-position: top left;
+    
+
+}
+.container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+  
+  /* Style for the title */
+  .titre {
+    font-size: 32px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+  }
+  
+  /* Style for the parent div */
+  .parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Style for the child divs */
+  .div1,
+  .div3,
+  .div5,
+  .div7 {
+    width: 300px;
+    margin: 20px;
+  }
+  
+  /* Style for the icon rectangles */
+  .rectangle {
+    width: 60px;
+    height: 60px;
+    background-color: #C7756F;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+  }
+  
+  /* Style for the icons */
+  fa-icon {
+    font-size: 30px;
+    color: #fff;
+  }
+  
+  /* Style for the headings */
+  h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    
+    .wrapper{
+        background: none;
+        
+    
+    }
+    
+    
+  } 

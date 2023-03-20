@@ -53,17 +53,19 @@
      }
      @media only screen and (max-width: 600px) {
         .parent {
-          background-color: #fff;
           display: flex;
           flex-direction: column-reverse;
           align-items: center;
           height: 1000px;
+          background: url("../../../assets/images/background1.png") no-repeat;
+    background-position: bottom left;
         }
         
         .div3 img{
             width: 350px;
             position: relative;
             margin-right: 550px;
+            margin-bottom: 0;
         }
         .div1{
             padding-left: 10px;

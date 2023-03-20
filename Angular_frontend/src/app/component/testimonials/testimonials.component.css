@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
 
 .container1 h3 {
    
@@ -54,20 +54,15 @@
  .carousel-indicators .active {
    background-color: rgb(15, 14, 14) !important;
  }
- :host ::ng-deep .carousel-control-prev-icon{
-  background-image: url('https://apufpel.com.br/assets/img/seta_prim.png');
- }
- 
- :host ::ng-deep .carousel-control-next-icon{
-  background-image: url('https://apufpel.com.br/assets/img/seta_ult.png');
- }
+
+
  @media only screen and (max-width: 600px) {
   .module-border-wrap {
     width: 300px;
   }
   .parent > div {
-      border-bottom:3px dotted  #D0915D;
-      border-right:0px dotted  #D0915D;
+      border-bottom:3px dotted  #222831;
+      border-right:0px dotted  #222831;
       margin-bottom: 40px;
 
 
@@ -75,4 +70,57 @@
   
   
   
+} 
+ngb-carousel{
+  margin-bottom: 100px;
 }
+.container1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  background-color: #f5f5f5;
+  margin-bottom: 100px;
+}
+.titre {
+  font-size: 32px;
+  margin-bottom: 40px;
+  margin-top: 100px;
+}
+
+.module-border-wrap {
+  padding: 40px;
+  background-color: #ffefe2;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  margin: 20px;
+}
+
+.module1 {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.module1 img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.module1 p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.module1 h3 {
+  font-size: 24px;
+  color: #C7756F;
+  margin-bottom: 0;
+}
+
+
+
+

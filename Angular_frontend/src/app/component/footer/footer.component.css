@@ -1,97 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;700&display=swap');
 
-.parent {
-    display: grid;
-    margin-top: 100px;
-   
-    grid-template-columns: 2fr 2fr 4fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 5px;
-    background: url("../../../assets/images/background1.png") no-repeat;
-    background-position: bottom left;
-    }
-    
-    .div1 { grid-area: 1 / 1 / 2 / 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-
-     }
-    .div3 { 
-        grid-area: 1 / 2 / 2 / 3;
-        display: flex;
-        border-right:3px dotted  #D0915D;
-
-        flex-direction: column;
-    
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-       
-    }
-    .div5 { 
-        grid-area: 1 / 3 / 2 / 4;
-        display: flex;
-
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-        }
-    .div5 input , textarea{
-        border:2px solid #D0915D;
-        background-color: transparent;
-        border-top: 0px;
-        border-left: 0px;
-        border-right: 0px;
-        outline: none;
-        color: #D0915D;
-        padding: 5px;
-        
-    }
-    .div5 input:active ,textarea:active{
-        border:2px solid #774115;
-        border-top: 0px;
-        border-left: 0px;
-        border-right: 0px;
-        outline: none;
-        color: #D0915D;
-        padding: 5px;
-        
-    }
-    img{
-        width: 200px;
-    justify-self: flex-start;
-    margin-bottom: 30px;
-    }
-    .acolade
-    {
-        display: none;
-    }
-    @media only screen and (max-width: 600px) {
-        .parent {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        .parent > div {
+        .container1 {
+            background: url("../../../assets/images/background1.png") no-repeat;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #000;
+            background-position: bottom left;
+            margin-top: 100px;
+          }
+          
+          /* Center the parent div and set max width for larger screens */
+          .parent {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+          }
+          
+          /* Set the width and margin of the first column */
+          .flex-[1] {
+            flex: 1;
+            margin-right: 10px;
+          }
+          
+          /* Style the logo image and accolade image */
+          .acolade
+          {
+              display: none;
+          }
+          
+          .w-[266px] {
+            width: 266px;
+          }
+          
+          .h-[72.14px] {
+            height: 72.14px;
+          }
+          
+          .object-contain {
+            object-fit: contain;
+          }
+          
+          /* Style the form container */
+          .div5 {
+            width: 100%;
+            max-width: 400px;
+          }
+          
+          /* Style the form elements */
+          form {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          input[type="text"],
+          textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border:2px solid #D0915D;
+            background-color: transparent;
+            border-top: 0px;
+            border-left: 0px;
             border-right: 0px;
-            border-bottom:3px dotted  #D0915D;
-            width: 100%;
-        }
-        .div1{
-            width: 300px;
-        }
-        img{
-            justify-self: center;
-        }
-        .acolade{
-            display: block;
-            width: 100%;
-        }
-       
-        
-      }
-    
-    
+            outline: none;
+            color: #D0915D;
+          }
+          
+          input[type="submit"] {
+            background-color: #C7756F;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          
+          input[type="submit"]:hover {
+            background-color: #C7756F;
+          }
+          
+          /* Style the headings */
+          h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+          }
+          
+          p {
+            margin-bottom: 20px;
+            font-size: 18px;
+          }
+          @media only screen and (max-width: 600px) {
+            
+            .acolade{
+                display: block;
+                width: 100%;
+            }
+           
+            
+          }
+          
+          
+          
+          
+          
