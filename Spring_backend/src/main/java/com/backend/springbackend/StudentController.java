@@ -119,6 +119,23 @@ public class StudentController {
 	    return ResponseEntity.ok(currentuser);
 	  }
 	@CrossOrigin(origins = "*")
+	@GetMapping("/user/sendok/{currentuserId}")
+	  public ResponseEntity<Integer> sendok( @PathVariable("currentuserId") int currentuserId , HttpServletRequest request) throws SQLException {
+	    
+		int flag=0;
+	    Student currentuser = userservice.finduserbyid(currentuserId);
+	  
+	    if(currentuser!=null ) {
+	    	
+	    	int changeinvitationresponse = userservice.changeinvitationresponse(currentuserId);
+	    	flag=1;
+	    }
+	    
+	    System.out.println(currentuserId);
+	    // TODO: Implement the code to send an invitation to the chosen roommate with the given name and id of the current user.
+	    return ResponseEntity.ok(currentuserId);
+	  }
+	@CrossOrigin(origins = "*")
 	@GetMapping("/user/sendacceptinvitation/{userguestId}/{currentuserId}")
 	  public ResponseEntity<Integer> sendacceptInvitationtouser(@PathVariable("userguestId") String userguest , @PathVariable("currentuserId") int currentuserId , HttpServletRequest request) throws SQLException {
 	    

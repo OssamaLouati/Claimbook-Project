@@ -87,6 +87,11 @@ export class RecommendationService {
     
   
   }
+  sendok(currentuserid:number ): Observable<any>  {
+    return this.http.get<any>(`http://localhost:8082/user/sendok/${currentuserid}`);
+    
+  
+  }
   setFlag(flag: number) {
     this.flag = flag;
   }

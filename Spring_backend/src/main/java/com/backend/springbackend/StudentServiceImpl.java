@@ -181,6 +181,29 @@ public class StudentServiceImpl implements StudentService {
 		 return flag;
 	}
 	@Override
+	public int changeinvitationresponse(int userid) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET  invitationresponse=? WHERE id=?");
+		    	
+		    	statement.setInt(1, 0);
+		    	statement.setInt(2, userid);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
+	@Override
 	public int sendaccept(int useridg , int useridc) {
 		// TODO Auto-generated method stub
 		int flag=0;

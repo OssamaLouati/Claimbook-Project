@@ -15,5 +15,6 @@ public interface StudentService {
 	int changeinvitation(int userid);
 	public int sendaccept(int userguestId, int currentuser);
 	public int sendreject(int userguestId, int currentuserId);
+	public int changeinvitationresponse(int currentuserId);
 
 }

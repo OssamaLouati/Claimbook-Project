@@ -40,18 +40,19 @@ export class SendinvitationComponent {
     this.recommmendationService.acceptInvitation(this.user$.id, this.userguest.id).subscribe(async (response) => {
 
       this.user$.roommate=true;
+      this.user$.invitation=0;
       this.flag = 1;
       // handle success
-      this.accept=this.userguest.id;
+    
       const userJson = await localStorage.getItem('currentUser');
       const user = userJson ? JSON.parse(userJson) : {};
       await this.recommmendationService.acceptInvitation(user.id, this.userguest.id).toPromise();
       user.roommate = true;
+      user.invitation=0;
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.loginuserService.setUser(user);
       this.recommmendationService.setFlag(this.flag);
-      this.recommmendationService.setAccept(this.accept); 
-      console.log(this.recommmendationService.getAccept());
+     
       alert("invitation accepted ! now you and "+this.userguest.name+" have become a roommates");
       location.reload();
       
@@ -64,11 +65,20 @@ export class SendinvitationComponent {
     
   }
   rejectroommate(){
-    this.recommmendationService.rejectInvitation(this.user$.id, this.userguest.id).subscribe((response) => {
+    this.recommmendationService.rejectInvitation(this.user$.id, this.userguest.id).subscribe(async (response) => {
       // handle success
       console.log(response);
+     
+      this.user$.invitation=0;
+     
+      // handle success
+     
+      const userJson = await localStorage.getItem('currentUser');
+      const user = userJson ? JSON.parse(userJson) : {};
+      user.invitation=0;
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this.loginuserService.setUser(user);
       
-      this.reject=this.userguest.id;
       alert("invitation denied ! you reject "+this.userguest.name+" to become your roommate");
       location.reload();
     }, (error) => {
