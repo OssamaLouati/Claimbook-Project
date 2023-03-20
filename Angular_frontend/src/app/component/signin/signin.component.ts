@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras  } from '@angular/router';
 import { LoginuserService } from 'src/app/service/loginuser.service';
 import { User } from 'src/app/user';
 import { Technician } from 'src/app/technician';
@@ -85,7 +85,7 @@ export class SigninComponent implements OnInit {
           const user = userr ? JSON.parse(userr) : {}
           this.loginuserservice.setUser(user);
           console.log(user.id);
-          this.router.navigate(["/profil"]);
+          this.router.navigate(["/profil"], { skipLocationChange: false });
         
         }else{
           alert("invalid email/password");
