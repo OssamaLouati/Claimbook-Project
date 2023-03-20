@@ -64,11 +64,12 @@ public class StudentServiceImpl implements StudentService {
 			    Boolean roommate = re.getBoolean("roommate");
 				String gender = re.getString("gender");
 			    String avatar = re.getString("avatar");
-			    
+			    int invitation = re.getInt("invitation");
+			    int invitationresponse = re.getInt("invitationresponse");
 			    // extract other user properties as needed
 			    
 
-			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar);
+			    Student user = new Student((int) id, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar, invitation , invitationresponse);
 			    // set other user properties as needed
 
 			    return user;
@@ -76,7 +77,178 @@ public class StudentServiceImpl implements StudentService {
 			    return null;
 			}
 	}
-	
+	@Override
+	public int endinvitationtouser(String name , int id) throws SQLException {
+				 int flag=0;
+				 try {
+				    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET invitation=? WHERE name=?");
+				    	statement.setInt(1, id);
+				        statement.setString(2, name);
+				       
+				        statement.executeUpdate();
+				        statement.close();
+				        flag=1;
+				        
+				        
+				    	
+				    } catch(SQLException e){
+				    	flag =0;
+						System.out.println(e.getMessage());
+				    	
+				    }
+				 return flag;
+	}
+	@Override
+	public Student finduserbyid(int id) throws SQLException {
+		
+			PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE  id ='"+id+"'");
+			ResultSet re =statement.executeQuery();
+			
+			
+			if (re.next()) {
+			    long id1 = re.getLong("id");
+			    String username = re.getString("name");
+			    String userEmail = re.getString("email");
+			    String userPassword = re.getString("password");
+			    String userBio = re.getString("bio");
+			    String userSkills = re.getString("skills");
+			    long room = re.getLong("room");
+			    long pav = re.getLong("pavillon");			 
+			    String userniveau = re.getString("niveau");				 
+			    String userfiliere = re.getString("filiere");
+			    Boolean roommate = re.getBoolean("roommate");
+				String gender = re.getString("gender");
+			    String avatar = re.getString("avatar");
+			    int invitation = re.getInt("invitation");
+			    int invitationresponse = re.getInt("invitationresponse");
+			    // extract other user properties as needed
+			    
+
+			    Student user = new Student((int) id1, userEmail, userPassword,username,userBio,userniveau,userfiliere,userSkills,(int) room,(int) pav,roommate, gender, avatar , invitation , invitationresponse);
+			    // set other user properties as needed
+
+			    return user;
+			} else {
+			    return null;
+			}
+	}
+
+
+	@Override
+	public int changeroommate(int userid) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET roommate=?, invitation=? WHERE id=?");
+		    	statement.setInt(1, 1);
+		    	statement.setInt(2, 0);
+		    	statement.setInt(3, userid);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
+	@Override
+	public int changeinvitation(int userid) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET  invitation=? WHERE id=?");
+		    	
+		    	statement.setInt(1, 0);
+		    	statement.setInt(2, userid);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
+	@Override
+	public int changeinvitationresponse(int userid) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET  invitationresponse=? WHERE id=?");
+		    	
+		    	statement.setInt(1, 0);
+		    	statement.setInt(2, userid);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
+	@Override
+	public int sendaccept(int useridg , int useridc) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET  invitationresponse=? WHERE id=?");
+		    	
+		    	statement.setInt(1, useridc);
+		    	statement.setInt(2, useridg);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
+	@Override
+	public int sendreject(int useridg , int useridc) {
+		// TODO Auto-generated method stub
+		int flag=0;
+		 try {
+		    	PreparedStatement statement = connection.prepareStatement("UPDATE users SET  invitationresponse=? WHERE id=?");
+		    	
+		    	statement.setInt(1, -useridc);
+		    	statement.setInt(2, useridg);
+		       
+		        statement.executeUpdate();
+		        statement.close();
+		        flag=1;
+		        
+		        
+		    	
+		    } catch(SQLException e){
+		    	flag =0;
+				System.out.println(e.getMessage());
+		    	
+		    }
+		 return flag;
+	}
 	
 	
 	
