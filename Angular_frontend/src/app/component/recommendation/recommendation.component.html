@@ -1,16 +1,13 @@
-<div class="container  ">
-    <h3>We suggest you the best roommates for you</h3>
-    <div class="flex flex-col p-6">
-
-        <div class="card " style="width: 18rem; " *ngFor="let user of recommended_r">
-           
-        
-            <img class="card-img-top" src="{{user[2]}}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">{{user[0]}}</h5>
-              <p class="card-text">{{user[1]}}</p>
-              <a href="#" class="btn btn-primary">choose as roommate</a>
-            </div>
-          </div>
+<div class="wrap">
+  <h3>We recommend the best roomates for you</h3>
+  <div class="box" *ngFor="let user of recommended_r">
+    <div class="box-top">
+      <img class="box-image" src="{{user[2]}}" alt="recommend roommate">
+      <div class="title-flex">
+        <h3 class="box-title">{{user[0]}}</h3>
+        <p class="user-follow-info">{{user[1]}}<p>
+      </div>
     </div>
+    <a href="#" class="button">Send invitation</a>
+  </div>
 </div>

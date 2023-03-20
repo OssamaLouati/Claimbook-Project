@@ -44,7 +44,7 @@ export class ProfileComponent {
       
 
       
-      this.cdr.detectChanges(); // force change detection to update the view
+      this.cdr.detectChanges(); 
       this.skills = this.user$.skills.replace(/\s+/g, " ").split(" ");
       let index = this.skills.indexOf("");
      
