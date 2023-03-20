@@ -1,5 +1,3 @@
-
-
 .parent {
     display: grid;
     padding: 0;
@@ -13,71 +11,64 @@
     grid-template-rows: 3fr repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 5px;
-    }
-    
-    .div1 { 
-        grid-area: 1 / 1 / 2 / 2;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        padding-left: 100px;
-        padding-top: 20px;
-        justify-content: center;
-     }
-     .div1 .titre{
-        display: none;
-     }
-     .div1 img {
-        width: 400px;
-     }
+}
+
+.div1 { 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 100px;
+    padding-top: 20px;
+    justify-content: center;
+    grid-area: 1 / 1 / 2 / 2;
+}
+.div1 .titre{
+    display: none;
+}
+.div1 img {
+    width: 400px;
+}
    
-    .div3 { 
-        grid-area: 1 / 4 / 2 / 5;
+.div3 { 
+    display: flex;
+    position: relative;
+    grid-area: 1 / 4 / 2 / 5;   
+}
+.div3 img {
+    position: absolute;
+    left: -10px;
+    bottom: -15px;
+    width: 550px;        
+}
+.div4 { 
+    align-self: flex-end;
+}
+@media only screen and (max-width: 600px) {
+    .parent {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: 1000px;
+        background: url("../../../assets/images/background1.png") no-repeat;
         display: flex;
+    }
+    .div3 img{
         position: relative;
-       
-
-        
+        right: 50px;
+        margin-right: 500px;
+        margin-bottom: 0;
+        width: 350px;
     }
-    .div3 img {
-        width: 550px;
-        position: absolute;
-        left: 100px;
-        
-        
-        
-
+    .div1{
+        padding-left: 10px;
     }
-    .div4 { 
-        align-self: flex-end;
-     }
-     @media only screen and (max-width: 600px) {
-        .parent {
-          display: flex;
-          flex-direction: column-reverse;
-          align-items: center;
-          height: 1000px;
-          background: url("../../../assets/images/background1.png") no-repeat;
-    background-position: bottom left;
-        }
+    .div1 img{
+        display: none;
+    }
+    .div1 .titre{
+        display: inline;
+    }
+    .div4{
+        align-self:center;
+    }
         
-        .div3 img{
-            width: 350px;
-            position: relative;
-            margin-right: 550px;
-            margin-bottom: 0;
-        }
-        .div1{
-            padding-left: 10px;
-        }
-        .div1 img{
-            display: none;
-        }
-        .div1 .titre{
-            display: inline;
-        }
-        .div4{
-            align-self:center;
-        }
-        
-      }
+}

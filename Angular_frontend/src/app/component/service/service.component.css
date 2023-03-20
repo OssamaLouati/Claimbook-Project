@@ -83,6 +83,8 @@
 .wrapper{
     background: url("../../../assets/images/service.png") no-repeat;
     background-position: top left;
+    margin-left: 50px;
+    height: 100%;
     
 
 }
@@ -95,8 +97,9 @@
   
   /* Style for the title */
   .titre {
-    font-size: 32px;
-    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 30px;
     margin-top: 100px;
   }
   

@@ -27,7 +27,6 @@ import { MDBBootstrapModule } from 'ng-uikit-pro-standard';
 import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { LogoutComponent } from './component/logout/logout.component';
-
 import { SuccessComponent } from './component/success/success.component';
 import { EditclaimComponent } from './component/editclaim/editclaim.component';
 import { SuccessupdateclaimComponent } from './component/successupdateclaim/successupdateclaim.component';
