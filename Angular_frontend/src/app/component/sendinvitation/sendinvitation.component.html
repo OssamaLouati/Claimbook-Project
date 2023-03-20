@@ -9,8 +9,11 @@
             <div class="card-body">
               <h5 class="card-title">{{userguest.name}}</h5>
               <p class="card-text">{{userguest.bio}}</p>
-              <button href="#" (click)="acceptroommate()" class="btn btn-primary">Accept as roommate</button>
-              <button href="#" (click)="rejectroommate()" class="btn btn-primary">Reject roommate</button>
+              <div class="flex justify-between ">
+
+                <button href="#" (click)="acceptroommate()" class="btn btn-success mr-6">Accept as roommate</button>
+                <button href="#" (click)="rejectroommate()" class="btn btn-danger">Reject roommate</button>
+              </div>
             </div>
           </div>
     </div>
