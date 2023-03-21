@@ -31,6 +31,7 @@ export class RecommendationComponent {
 
     
           console.log(response);
+          this.modalRef.close();
           alert("invitation sent to "+roommateName)
           
           

@@ -53,7 +53,7 @@ export class SendinvitationComponent {
       this.loginuserService.setUser(user);
       this.recommmendationService.setFlag(this.flag);
      
-      alert("invitation accepted ! now you and "+this.userguest.name+" have become a roommates");
+      alert("Invitation accepted ! now you and "+this.userguest.name+" have become a roommates");
       location.reload();
       
        
@@ -79,7 +79,7 @@ export class SendinvitationComponent {
       localStorage.setItem('currentUser', JSON.stringify(user));
       this.loginuserService.setUser(user);
       
-      alert("invitation denied ! you reject "+this.userguest.name+" to become your roommate");
+      alert("Invitation denied ! you rejected "+this.userguest.name+" to become your roommate");
       location.reload();
     }, (error) => {
       // handle error
