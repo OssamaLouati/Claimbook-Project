@@ -16,12 +16,12 @@ export class TestimonialsComponent {
     config.pauseOnHover = false;
   }
   items = [    { 
-    name: 'firt year student',
+    name: 'First Year Student',
    image: '../../../assets/images/Image2.png' , 
    text:"I had the pleasure of using this web application for managing my student claims and finding a roommate, and it was a game-changer. As a new student on campus, I was struggling to find someone to live with, but this app made it easy to connect with potential roommates who shared my interests and lifestyle." 
   },    
   { 
-    name: 'boarding committee ',
+    name: 'Boarding committee ',
    image: '../../../assets/images/Image.png', 
    text:"I've been using this web application , and it's been a tremendous help in managing my student claims. The app is user-friendly and intuitive, making it easy to submit claims and track their progress. The roommate recommendation feature is also excellent, especially from out INPT students themselves."
    },   
