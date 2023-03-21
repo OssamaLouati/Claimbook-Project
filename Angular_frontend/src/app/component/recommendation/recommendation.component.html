@@ -1,4 +1,4 @@
-<div class="wrap  ">
+<!-- <div class="wrap  ">
     <h3>We suggest you the best roommates for you</h3>
     <div class="box">
 
@@ -14,4 +14,17 @@
           </div>
     </div>
    
+  </div> -->
+  <div class="wrap">
+    <h3>We recommend the best roomates for you</h3>
+    <div class="box" *ngFor="let user of recommended_r">
+      <div class="box-top">
+        <img class="box-image" src="{{user[2]}}" alt="recommend roommate">
+        <div class="title-flex">
+          <h3 class="box-title">{{user[0]}}</h3>
+          <p class="user-follow-info">{{user[1]}}<p>
+        </div>
+      </div>
+      <a (click)="sendInvitation(currentUserId, user[0])" class="button">Send invitation</a>
+    </div>
   </div>

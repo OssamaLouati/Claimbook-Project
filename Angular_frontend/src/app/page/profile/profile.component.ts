@@ -32,7 +32,7 @@ export class ProfileComponent {
   skills: string[] = [];
   recommended_r!: string[];
   roommate = false;
-  imageUrl='assets/images/photo.webp';
+  imageUrl=this.user$.avatar;
   flag = 0;
   roomname = "";
   accept = 0;

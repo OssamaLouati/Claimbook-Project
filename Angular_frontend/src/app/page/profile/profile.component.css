@@ -5,11 +5,15 @@
     padding: 20px;
     
 }
+.tititi{
+    text-align: center;
+}
 .section-title{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
 }
+
 .about .about-content{
     flex: 0 0 100%;
     max-width: 100%;
@@ -79,22 +83,26 @@
     margin-right: 15px;
     margin-top: 10px;
 }
-.about .about-content .skills{
+.skills{
     flex: 0 0 100%;
     max-width: 100%;
-    
+    justify-content: center;
     margin-top: 40px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
 
 }
-.about .about-content .skills .skill{
+.skills .skill{
     border: 2px solid #73451F;
+    border-radius: 10px;
     flex: 0 0 20%;
     padding: 10px;
+    text-align: center;
 
 }
+
 
 
 
@@ -110,6 +118,10 @@
 
 
 .bell-animation {
+    position:absolute;
+    top: 200px;
+    right: 20px;
+    z-index: 20;
     color: rgb(251, 97, 97);
     cursor: pointer;
     width: 100px;
@@ -125,6 +137,9 @@
   
 .bell-no-animation {
     color: #A7667F !important;
+    position:absolute;
+    top: 200px;
+    right: 20px;
     cursor: none;
     width: 100px;
     font-size: 30px;
