@@ -25,7 +25,7 @@ public class ClaimServiceImpl implements ClaimService {
 	@Override
 	public int storeClaim(int student_id, String type, String description, MultipartFile picure, int room, int pavillon) {
 		String fileName = UUID.randomUUID().toString() + ".jpg";
-	    String picture_url = "C:/Users/louat/Desktop/data/" + fileName;
+	    String picture_url = "C:/Users/taouk/Desktop/data" + fileName;
 	  
 	    try {
 	    	picure.transferTo(new File(picture_url));
@@ -91,7 +91,7 @@ public class ClaimServiceImpl implements ClaimService {
 	public int updateClaim(int id, String type, String description, MultipartFile picure, int room, int pavillon) throws SQLException {
 		int rowsAffected = 0;
 		String fileName = UUID.randomUUID().toString() + ".jpg";
-	    String picture_url = "C:/Users/louat/Desktop/data/" + fileName;
+	    String picture_url = "C:/Users/taouk/Desktop/data" + fileName;
 	  
 	    try {
 	    	picure.transferTo(new File(picture_url));
