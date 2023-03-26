@@ -1,68 +1,60 @@
-<div class="about section m-6  " id="about" *ngIf="user$ as user">
+<div class="about section m-12" id="about" *ngIf="user$ as user">
     <div class="row">
         <div class="section-title padd-15">
-            <h2 class="titre">My Profile</h2>  
-             
+            <h2 class=" titre">My Profile</h2> 
         </div>
-    <div class="container m-8 ">
-        
-            <div class="about-text padd-15">
-                <h3>I'm {{user.name}} <span>a Software engineering Student at INPT,</span></h3>
-                <p>{{user.bio}}</p>
-                
-                <button class="btn1 mb-6" (click)="openModal()">Edit Profile</button>
+        <fa-icon [class.bell-animation]="user$.invitation!==0 || user$.invitationresponse!==0" [class.bell-no-animation]="user$.invitation==0 && user$.invitationresponse==0" (click)="openModalforeachuser()" [icon]="faBell"></fa-icon> 
 
-            </div>
-       
-         
-            <div class="section-image padd-15">
-                <img [src]="imageUrl" type="image" class="w-full">
-            </div>
-         
+    <div class=" tititi m-8 ">
+        <h3>I'm {{user.name}} an Engineering Student at INPT</h3>
+        <div class="padd-15">
+            <p>{{user.bio}}</p>
+        </div>   
     </div>
+
     <div class="info-item alert alert-warning flex justify-evenly items-center " *ngIf="!user.roommate">
         <img class="w-60" src="../../../assets/images/roommate.png" alt="">
         <p class=" text-2xl font-bold">Would you like some help finding a roommate?</p>
         <button class="btn1 mb-6" (click)="openModal2()">Find Roommate</button>
       </div>
+      <div class=" " *ngIf="user.roommate">
+      </div>
         <div>
             <div class="row">
                 <div class="about-content padd-15">
-                        
                         <div class="row">
                             <div class="personal-info padd-15">
-
                               <div class="row">
                                 <div class="info-item padd-15">
                                     <p>
-                                        niveau: <span>{{user.niveau}}</span>
+                                        Graduation year: <span>{{user.niveau}}</span>
                                     </p>
                                 </div>
                                 <div class="info-item padd-15">
                                     <p>
-                                        filiere: <span>{{user.filiere}}</span>
-                                    </p>
-                                </div>
-                               
-                                <div class="info-item padd-15">
-                                    <p>
-                                        room: <span>{{user.room}}</span>
-                                    </p>
-                                </div>
-                                <div class="info-item padd-15">
-                                    <p>
-                                        pavillion: <span>{{user.pavillon}}</span>
+                                        Major: <span>{{user.filiere}}</span>
                                     </p>
                                 </div>
                                
                                 <div class="info-item padd-15">
                                     <p>
-                                        Roommate: <span>{{user.roommate}}</span>
+                                        Room N°: <span>{{user.room}}</span>
+                                    </p>
+                                </div>
+                                <div class="info-item padd-15">
+                                    <p>
+                                        Block N°: <span>{{user.pavillon}}</span>
+                                    </p>
+                                </div>
+                               
+                                <div class="info-item padd-15">
+                                    <p>
+                                        Having a roommate: <span>{{user.roommate}}</span>
                                     </p>
                                 </div>
                               </div>
-                              <h3 class="mt-6">My skills</h3>
-                            <div class="skills padd-15" *ngFor="let skill of skills">
+                              <h3 class="section-title titre ">My skills</h3>
+                              <div class="skills padd-12" *ngFor="let skill of skills">
 
                                 <div class="skill">
                                     <h2 class="title">{{skill}}</h2>
