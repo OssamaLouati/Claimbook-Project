@@ -2,7 +2,7 @@
 
 
 
-<p align="center">Claimbook: useful tool for resident students</p>
+
 <p align="center">
     <img src='https://i.postimg.cc/htyncF0G/Untitled-design.png' border='0' alt='Untitled-design'/>
 </p>
