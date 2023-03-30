@@ -20,8 +20,6 @@ also for the dorm management team can view and manage all submitted claims and  
 
 also they can consult the AI for help and consultation by using the OPENAI Api that we provided.
 
-<br>
-UBI makes us live the vibe of belonging as we sing with one voice from our hearts showing to all people our loyalty, our love and how much we are proud to be a part of a second home, a very special family, the BLEU INES family.
 
 ## Details : 
 - A Responsive Web-App .
