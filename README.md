@@ -4,7 +4,7 @@
 
 
 <p align="center">
-    <img src='https://i.postimg.cc/htyncF0G/Untitled-design.png' border='0' alt='Untitled-design'/>
+    <a href="https://postimg.cc/75NYw9M2" target="_blank"><img src="https://i.postimg.cc/VNQRgs2J/Untitled-design.png" alt="1"/></a><br/><br/>
 </p>
 
 
