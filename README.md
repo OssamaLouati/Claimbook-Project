@@ -32,11 +32,10 @@ also they can consult the AI for help and consultation by using the OPENAI Api t
 
 <br>
 <p align="center">
-  <a href="https://postimg.cc/75NYw9M2" target="_blank"><img src="https://i.postimg.cc/mgvc36P8/1.png" alt="1"/></a><br/><br/>
-  <a href="https://postimg.cc/Kk1Z72XP" target="_blank"><img src="https://i.postimg.cc/fLKJNzBr/2.png" alt="2"/></a><br/><br/>
-  <a href="https://postimg.cc/948mqfkX" target="_blank"><img src="https://i.postimg.cc/W3jhCF6Z/3.png" alt="3"/></a><br/><br/>
-  <a href="https://postimg.cc/7CYP6zmQ" target="_blank"><img src="https://i.postimg.cc/wBD1wcJH/4.png" alt="4"/></a><br/><br/>
-  <a href="https://postimg.cc/5YDfnR1Z" target="_blank"><img src="https://i.postimg.cc/yx8W6MGY/5.png" alt="5"/></a><br/><br/>
+  <img src="./Report_doc/Claimbook.png" alt="1"/><br/><br/>
+  <img src="./Report_doc/Claimbook (1).png" alt="2"/><br/><br/>
+  <img src="./Report_doc/Claimbook (2).png" alt="3"/><br/><br/>
+  <img src="./Report_doc/Claimbook (3).png" alt="4"/><br/><br/>
 
 </p>
 
